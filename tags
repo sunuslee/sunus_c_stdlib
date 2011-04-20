@@ -1,0 +1,32 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CFLAGS	Makefile	/^CFLAGS := -Wall -g -I$(TOP)$/;"	m
+LEFT	heap/heap.c	3;"	d	file:
+MAX	include/MyAlgo.h	26;"	d
+MIN	include/MyAlgo.h	33;"	d
+OFFSET	include/MyAlgo.h	23;"	d
+RIGHT	heap/heap.c	4;"	d	file:
+TOP	Makefile	/^TOP = .$/;"	m
+_VALCMP	common/common.c	28;"	d	file:
+bool	include/MyAlgo.h	/^typedef int bool;$/;"	t
+build_max_heap	heap/heap.c	/^int build_max_heap(void *array, int32_t nelem, size_t elem_size, int32_t offset, const char *ele_type)$/;"	f
+cmptest	common/common.c	/^void cmptest(const char *type, void *a_addr, void *b_addr)$/;"	f
+int16_t	include/MyAlgo.h	/^typedef short int16_t;$/;"	t
+int32_t	include/MyAlgo.h	/^typedef int int32_t;$/;"	t
+int64_t	include/MyAlgo.h	/^typedef long long int64_t;$/;"	t
+int8_t	include/MyAlgo.h	/^typedef signed char int8_t;$/;"	t
+main	main.c	/^int main()$/;"	f
+main	test/test.c	/^int main()$/;"	f
+max_heapify	heap/heap.c	/^void max_heapify(void *array, int i, int32_t nelem, size_t elem_size, int32_t offset, int i_type)$/;"	f
+select_cmp_type	common/common.c	/^int select_cmp_type(const char *type)$/;"	f
+test_main	heap/heap.c	/^void test_main()$/;"	f
+uint16_t	include/MyAlgo.h	/^typedef unsigned short uint16_t;$/;"	t
+uint32_t	include/MyAlgo.h	/^typedef unsigned int uint32_t;$/;"	t
+uint64_t	include/MyAlgo.h	/^typedef unsigned long long uint64_t;$/;"	t
+uint8_t	include/MyAlgo.h	/^typedef unsigned char uint8_t;$/;"	t
+val_type	common/common.c	/^const char val_type[][8] = $/;"	v
+valcmp	common/common.c	/^int valcmp(int type, void *a_addr, void *b_addr) $/;"	f

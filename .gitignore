@@ -1,0 +1,6 @@
+*.o
+*.out
+*.swp
+*.gch
+*.odt
+/test/

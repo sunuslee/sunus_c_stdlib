@@ -1,0 +1,22 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+MAX_STACK_NR	stack.h	2;"	d
+_stack	stack.h	/^struct _stack$/;"	s
+button	stack.h	/^        void *button;$/;"	m	struct:_stack
+debug_stack	stack.c	3;"	d	file:
+elem_size	stack.h	/^        int elem_size;$/;"	m	struct:_stack
+free	stack.h	/^        bool free;$/;"	m	struct:_stack
+get_stack	stack.c	/^stack_t get_stack(int elem_nr, size_t elem_size)$/;"	f
+pop	stack.c	26;"	d	file:
+push	stack.c	7;"	d	file:
+sp	stack.h	/^        void *sp;$/;"	m	struct:_stack
+stack	stack.h	/^}stack[MAX_STACK_NR];$/;"	v	typeref:struct:_stack
+stack_destory	stack.c	40;"	d	file:
+stack_size	stack.h	/^        int stack_size;$/;"	m	struct:_stack
+stack_status	stack.c	/^        int stack_status;$/;"	v
+stack_test	stack.c	/^void stack_test()$/;"	f
+top	stack.h	/^        void *top;$/;"	m	struct:_stack
