@@ -1,9 +1,9 @@
 # This make file is use to parpare my intership exams
 
 TOP = .
-CFLAGS := -Wall -g -I$(TOP)
-heap_test :  common.o heap.o main.o
-	gcc -o heap_test common.o heap.o main.o
+CFLAGS := -Wall -std=c99 -g -I$(TOP)
+link_test :  common.o link.o main.o
+	gcc -o link_test common.o link.o main.o
 stack_test: stack.o main.o
 	gcc -o stack_test stack.o main.o
 stack.o : ./stack/stack.c ./stack/stack.h
@@ -14,7 +14,9 @@ heap.o : ./heap/heap.c ./heap/heap.h ./common/common.h
 	gcc -c $(CFLAGS) ./heap/heap.c ./heap/heap.h ./common/common.h
 #main.o : ./main.c ./heap/heap.h
 #	gcc -c $(CFLAGS) ./main.c ./heap/heap.h 
-main.o : ./main.c ./stack/stack.h
-	gcc -c $(CFLAGS) ./main.c ./stack/stack.h
+link.o : ./link/link.c ./link/link.h ./common/common.h
+	gcc -c $(CFLAGS) ./link/link.c ./link/link.h ./common/common.h
+main.o : ./main.c ./link/link.h
+	gcc -c $(CFLAGS) ./main.c ./link/link.h
 clean :
 	rm -rf heap_test stack_test stack.o common.o heap.o main.o

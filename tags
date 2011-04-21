@@ -4,29 +4,357 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+CALLOC_S	common/common.h	19;"	d
+CALLOC_S	link/link.c	14;"	d	file:
 CFLAGS	Makefile	/^CFLAGS := -Wall -g -I$(TOP)$/;"	m
-LEFT	heap/heap.c	3;"	d	file:
-MAX	include/MyAlgo.h	26;"	d
-MIN	include/MyAlgo.h	33;"	d
-OFFSET	include/MyAlgo.h	23;"	d
-RIGHT	heap/heap.c	4;"	d	file:
+FALSE	include/MyAlgo.h	20;"	d
+FILE	link/pl.c	/^typedef struct _IO_FILE FILE;$/;"	t	typeref:struct:_IO_FILE	file:
+LEFT	heap/heap.c	4;"	d	file:
+MALLOC_S	common/common.h	10;"	d
+MALLOC_S	link/link.c	5;"	d	file:
+MAX	include/MyAlgo.h	28;"	d
+MAX_STACK_NR	stack/stack.h	2;"	d
+MIN	include/MyAlgo.h	35;"	d
+OFFSET	include/MyAlgo.h	25;"	d
+RIGHT	heap/heap.c	5;"	d	file:
 TOP	Makefile	/^TOP = .$/;"	m
+TRUE	include/MyAlgo.h	21;"	d
+_G_fpos64_t	link/pl.c	/^} _G_fpos64_t;$/;"	t	typeref:struct:__anon5	file:
+_G_fpos_t	link/pl.c	/^} _G_fpos_t;$/;"	t	typeref:struct:__anon4	file:
+_G_int16_t	link/pl.c	/^typedef int _G_int16_t __attribute__ ((__mode__ (__HI__)));$/;"	t	file:
+_G_int32_t	link/pl.c	/^typedef int _G_int32_t __attribute__ ((__mode__ (__SI__)));$/;"	t	file:
+_G_uint16_t	link/pl.c	/^typedef unsigned int _G_uint16_t __attribute__ ((__mode__ (__HI__)));$/;"	t	file:
+_G_uint32_t	link/pl.c	/^typedef unsigned int _G_uint32_t __attribute__ ((__mode__ (__SI__)));$/;"	t	file:
+_IO_FILE	link/pl.c	/^struct _IO_FILE {$/;"	s	file:
+_IO_FILE	link/pl.c	/^typedef struct _IO_FILE _IO_FILE;$/;"	t	typeref:struct:_IO_FILE	file:
+_IO_backup_base	link/pl.c	/^  char *_IO_backup_base;$/;"	m	struct:_IO_FILE	file:
+_IO_buf_base	link/pl.c	/^  char* _IO_buf_base;$/;"	m	struct:_IO_FILE	file:
+_IO_buf_end	link/pl.c	/^  char* _IO_buf_end;$/;"	m	struct:_IO_FILE	file:
+_IO_lock_t	link/pl.c	/^typedef void _IO_lock_t;$/;"	t	file:
+_IO_marker	link/pl.c	/^struct _IO_marker {$/;"	s	file:
+_IO_read_base	link/pl.c	/^  char* _IO_read_base;$/;"	m	struct:_IO_FILE	file:
+_IO_read_end	link/pl.c	/^  char* _IO_read_end;$/;"	m	struct:_IO_FILE	file:
+_IO_read_ptr	link/pl.c	/^  char* _IO_read_ptr;$/;"	m	struct:_IO_FILE	file:
+_IO_save_base	link/pl.c	/^  char *_IO_save_base;$/;"	m	struct:_IO_FILE	file:
+_IO_save_end	link/pl.c	/^  char *_IO_save_end;$/;"	m	struct:_IO_FILE	file:
+_IO_write_base	link/pl.c	/^  char* _IO_write_base;$/;"	m	struct:_IO_FILE	file:
+_IO_write_end	link/pl.c	/^  char* _IO_write_end;$/;"	m	struct:_IO_FILE	file:
+_IO_write_ptr	link/pl.c	/^  char* _IO_write_ptr;$/;"	m	struct:_IO_FILE	file:
 _VALCMP	common/common.c	28;"	d	file:
+__FILE	link/pl.c	/^typedef struct _IO_FILE __FILE;$/;"	t	typeref:struct:_IO_FILE	file:
+__WAIT_STATUS	link/pl.c	/^  } __WAIT_STATUS __attribute__ ((__transparent_union__));$/;"	t	typeref:union:__anon8	file:
+__a	link/pl.c	/^    unsigned long long int __a;$/;"	m	struct:drand48_data	file:
+__align	link/pl.c	/^  __extension__ long long int __align;$/;"	m	union:__anon18	file:
+__align	link/pl.c	/^  int __align;$/;"	m	union:__anon17	file:
+__align	link/pl.c	/^  int __align;$/;"	m	union:__anon20	file:
+__align	link/pl.c	/^  int __align;$/;"	m	union:__anon25	file:
+__align	link/pl.c	/^  long int __align;$/;"	m	union:__anon14	file:
+__align	link/pl.c	/^  long int __align;$/;"	m	union:__anon15	file:
+__align	link/pl.c	/^  long int __align;$/;"	m	union:__anon21	file:
+__align	link/pl.c	/^  long int __align;$/;"	m	union:__anon23	file:
+__align	link/pl.c	/^  long int __align;$/;"	m	union:__anon24	file:
+__blkcnt64_t	link/pl.c	/^__extension__ typedef __quad_t __blkcnt64_t;$/;"	t	file:
+__blkcnt_t	link/pl.c	/^__extension__ typedef long int __blkcnt_t;$/;"	t	file:
+__blksize_t	link/pl.c	/^__extension__ typedef long int __blksize_t;$/;"	t	file:
+__broadcast_seq	link/pl.c	/^    unsigned int __broadcast_seq;$/;"	m	struct:__anon18::__anon19	file:
+__c	link/pl.c	/^    unsigned short int __c;$/;"	m	struct:drand48_data	file:
+__caddr_t	link/pl.c	/^typedef char *__caddr_t;$/;"	t	file:
+__clock_t	link/pl.c	/^__extension__ typedef long int __clock_t;$/;"	t	file:
+__clockid_t	link/pl.c	/^__extension__ typedef int __clockid_t;$/;"	t	file:
+__codecvt_error	link/pl.c	/^  __codecvt_error,$/;"	e	enum:__codecvt_result	file:
+__codecvt_noconv	link/pl.c	/^  __codecvt_noconv$/;"	e	enum:__codecvt_result	file:
+__codecvt_ok	link/pl.c	/^  __codecvt_ok,$/;"	e	enum:__codecvt_result	file:
+__codecvt_partial	link/pl.c	/^  __codecvt_partial,$/;"	e	enum:__codecvt_result	file:
+__codecvt_result	link/pl.c	/^enum __codecvt_result$/;"	g	file:
+__compar_fn_t	link/pl.c	/^typedef int (*__compar_fn_t) (__const void *, __const void *);$/;"	t	file:
+__count	link/pl.c	/^    unsigned int __count;$/;"	m	struct:__anon15::__pthread_mutex_s	file:
+__count	link/pl.c	/^  int __count;$/;"	m	struct:__anon2	file:
+__daddr_t	link/pl.c	/^__extension__ typedef int __daddr_t;$/;"	t	file:
+__data	link/pl.c	/^  } __data;$/;"	m	union:__anon15	typeref:struct:__anon15::__pthread_mutex_s	file:
+__data	link/pl.c	/^  } __data;$/;"	m	union:__anon18	typeref:struct:__anon18::__anon19	file:
+__data	link/pl.c	/^  } __data;$/;"	m	union:__anon21	typeref:struct:__anon21::__anon22	file:
+__dev_t	link/pl.c	/^__extension__ typedef __u_quad_t __dev_t;$/;"	t	file:
+__fd_mask	link/pl.c	/^typedef long int __fd_mask;$/;"	t	file:
+__fds_bits	link/pl.c	/^    __fd_mask __fds_bits[1024 \/ (8 * (int) sizeof (__fd_mask))];$/;"	m	struct:__anon13	file:
+__flags	link/pl.c	/^    unsigned char __flags;$/;"	m	struct:__anon21::__anon22	file:
+__fsblkcnt64_t	link/pl.c	/^__extension__ typedef __u_quad_t __fsblkcnt64_t;$/;"	t	file:
+__fsblkcnt_t	link/pl.c	/^__extension__ typedef unsigned long int __fsblkcnt_t;$/;"	t	file:
+__fsfilcnt64_t	link/pl.c	/^__extension__ typedef __u_quad_t __fsfilcnt64_t;$/;"	t	file:
+__fsfilcnt_t	link/pl.c	/^__extension__ typedef unsigned long int __fsfilcnt_t;$/;"	t	file:
+__fsid_t	link/pl.c	/^__extension__ typedef struct { int __val[2]; } __fsid_t;$/;"	t	typeref:struct:__anon1	file:
+__futex	link/pl.c	/^    unsigned int __futex;$/;"	m	struct:__anon18::__anon19	file:
+__gid_t	link/pl.c	/^__extension__ typedef unsigned int __gid_t;$/;"	t	file:
+__gnuc_va_list	link/pl.c	/^typedef __builtin_va_list __gnuc_va_list;$/;"	t	file:
+__id_t	link/pl.c	/^__extension__ typedef unsigned int __id_t;$/;"	t	file:
+__init	link/pl.c	/^    unsigned short int __init;$/;"	m	struct:drand48_data	file:
+__ino64_t	link/pl.c	/^__extension__ typedef __u_quad_t __ino64_t;$/;"	t	file:
+__ino_t	link/pl.c	/^__extension__ typedef unsigned long int __ino_t;$/;"	t	file:
+__int16_t	link/pl.c	/^typedef signed short int __int16_t;$/;"	t	file:
+__int32_t	link/pl.c	/^typedef signed int __int32_t;$/;"	t	file:
+__int64_t	link/pl.c	/^__extension__ typedef signed long long int __int64_t;$/;"	t	file:
+__int8_t	link/pl.c	/^typedef signed char __int8_t;$/;"	t	file:
+__intptr_t	link/pl.c	/^__extension__ typedef int __intptr_t;$/;"	t	file:
+__io_close_fn	link/pl.c	/^typedef int __io_close_fn (void *__cookie);$/;"	t	file:
+__io_read_fn	link/pl.c	/^typedef __ssize_t __io_read_fn (void *__cookie, char *__buf, size_t __nbytes);$/;"	t	file:
+__io_seek_fn	link/pl.c	/^typedef int __io_seek_fn (void *__cookie, __off64_t *__pos, int __w);$/;"	t	file:
+__io_write_fn	link/pl.c	/^typedef __ssize_t __io_write_fn (void *__cookie, __const char *__buf,$/;"	t	file:
+__iptr	link/pl.c	/^    int *__iptr;$/;"	m	union:__anon8	file:
+__key_t	link/pl.c	/^__extension__ typedef int __key_t;$/;"	t	file:
+__kind	link/pl.c	/^    int __kind;$/;"	m	struct:__anon15::__pthread_mutex_s	file:
+__list	link/pl.c	/^      __pthread_slist_t __list;$/;"	m	union:__anon15::__pthread_mutex_s::__anon16	file:
+__lock	link/pl.c	/^    int __lock;$/;"	m	struct:__anon15::__pthread_mutex_s	file:
+__lock	link/pl.c	/^    int __lock;$/;"	m	struct:__anon18::__anon19	file:
+__lock	link/pl.c	/^    int __lock;$/;"	m	struct:__anon21::__anon22	file:
+__loff_t	link/pl.c	/^typedef __off64_t __loff_t;$/;"	t	file:
+__mbstate_t	link/pl.c	/^} __mbstate_t;$/;"	t	typeref:struct:__anon2	file:
+__mode_t	link/pl.c	/^__extension__ typedef unsigned int __mode_t;$/;"	t	file:
+__mutex	link/pl.c	/^    void *__mutex;$/;"	m	struct:__anon18::__anon19	file:
+__next	link/pl.c	/^  struct __pthread_internal_slist *__next;$/;"	m	struct:__pthread_internal_slist	typeref:struct:__pthread_internal_slist::__pthread_internal_slist	file:
+__nlink_t	link/pl.c	/^__extension__ typedef unsigned int __nlink_t;$/;"	t	file:
+__nr_readers	link/pl.c	/^    unsigned int __nr_readers;$/;"	m	struct:__anon21::__anon22	file:
+__nr_readers_queued	link/pl.c	/^    unsigned int __nr_readers_queued;$/;"	m	struct:__anon21::__anon22	file:
+__nr_writers_queued	link/pl.c	/^    unsigned int __nr_writers_queued;$/;"	m	struct:__anon21::__anon22	file:
+__nusers	link/pl.c	/^    unsigned int __nusers;$/;"	m	struct:__anon15::__pthread_mutex_s	file:
+__nwaiters	link/pl.c	/^    unsigned int __nwaiters;$/;"	m	struct:__anon18::__anon19	file:
+__off64_t	link/pl.c	/^__extension__ typedef __quad_t __off64_t;$/;"	t	file:
+__off_t	link/pl.c	/^__extension__ typedef long int __off_t;$/;"	t	file:
+__old_x	link/pl.c	/^    unsigned short int __old_x[3];$/;"	m	struct:drand48_data	file:
+__owner	link/pl.c	/^    int __owner;$/;"	m	struct:__anon15::__pthread_mutex_s	file:
+__pad1	link/pl.c	/^    unsigned char __pad1;$/;"	m	struct:__anon21::__anon22	file:
+__pad1	link/pl.c	/^  void *__pad1;$/;"	m	struct:_IO_FILE	file:
+__pad2	link/pl.c	/^    unsigned char __pad2;$/;"	m	struct:__anon21::__anon22	file:
+__pad2	link/pl.c	/^  void *__pad2;$/;"	m	struct:_IO_FILE	file:
+__pad3	link/pl.c	/^  void *__pad3;$/;"	m	struct:_IO_FILE	file:
+__pad4	link/pl.c	/^  void *__pad4;$/;"	m	struct:_IO_FILE	file:
+__pad5	link/pl.c	/^  size_t __pad5;$/;"	m	struct:_IO_FILE	file:
+__pid_t	link/pl.c	/^__extension__ typedef int __pid_t;$/;"	t	file:
+__pos	link/pl.c	/^  __off64_t __pos;$/;"	m	struct:__anon5	file:
+__pos	link/pl.c	/^  __off_t __pos;$/;"	m	struct:__anon4	file:
+__pthread_internal_slist	link/pl.c	/^typedef struct __pthread_internal_slist$/;"	s	file:
+__pthread_mutex_s	link/pl.c	/^  struct __pthread_mutex_s$/;"	s	union:__anon15	file:
+__pthread_slist_t	link/pl.c	/^} __pthread_slist_t;$/;"	t	typeref:struct:__pthread_internal_slist	file:
+__qaddr_t	link/pl.c	/^typedef __quad_t *__qaddr_t;$/;"	t	file:
+__quad_t	link/pl.c	/^__extension__ typedef long long int __quad_t;$/;"	t	file:
+__readers_wakeup	link/pl.c	/^    unsigned int __readers_wakeup;$/;"	m	struct:__anon21::__anon22	file:
+__rlim64_t	link/pl.c	/^__extension__ typedef __u_quad_t __rlim64_t;$/;"	t	file:
+__rlim_t	link/pl.c	/^__extension__ typedef unsigned long int __rlim_t;$/;"	t	file:
+__shared	link/pl.c	/^    unsigned char __shared;$/;"	m	struct:__anon21::__anon22	file:
+__sig_atomic_t	link/pl.c	/^typedef int __sig_atomic_t;$/;"	t	file:
+__sigset_t	link/pl.c	/^  } __sigset_t;$/;"	t	typeref:struct:__anon12	file:
+__size	link/pl.c	/^  char __size[20];$/;"	m	union:__anon24	file:
+__size	link/pl.c	/^  char __size[24];$/;"	m	union:__anon15	file:
+__size	link/pl.c	/^  char __size[32];$/;"	m	union:__anon21	file:
+__size	link/pl.c	/^  char __size[36];$/;"	m	union:__anon14	file:
+__size	link/pl.c	/^  char __size[48];$/;"	m	union:__anon18	file:
+__size	link/pl.c	/^  char __size[4];$/;"	m	union:__anon17	file:
+__size	link/pl.c	/^  char __size[4];$/;"	m	union:__anon20	file:
+__size	link/pl.c	/^  char __size[4];$/;"	m	union:__anon25	file:
+__size	link/pl.c	/^  char __size[8];$/;"	m	union:__anon23	file:
+__socklen_t	link/pl.c	/^__extension__ typedef unsigned int __socklen_t;$/;"	t	file:
+__spins	link/pl.c	/^      int __spins;$/;"	m	union:__anon15::__pthread_mutex_s::__anon16	file:
+__ssize_t	link/pl.c	/^__extension__ typedef int __ssize_t;$/;"	t	file:
+__state	link/pl.c	/^  __mbstate_t __state;$/;"	m	struct:__anon4	file:
+__state	link/pl.c	/^  __mbstate_t __state;$/;"	m	struct:__anon5	file:
+__suseconds_t	link/pl.c	/^__extension__ typedef long int __suseconds_t;$/;"	t	file:
+__swblk_t	link/pl.c	/^__extension__ typedef long int __swblk_t;$/;"	t	file:
+__time_t	link/pl.c	/^__extension__ typedef long int __time_t;$/;"	t	file:
+__timer_t	link/pl.c	/^__extension__ typedef void * __timer_t;$/;"	t	file:
+__total_seq	link/pl.c	/^    __extension__ unsigned long long int __total_seq;$/;"	m	struct:__anon18::__anon19	file:
+__u_char	link/pl.c	/^typedef unsigned char __u_char;$/;"	t	file:
+__u_int	link/pl.c	/^typedef unsigned int __u_int;$/;"	t	file:
+__u_long	link/pl.c	/^typedef unsigned long int __u_long;$/;"	t	file:
+__u_quad_t	link/pl.c	/^__extension__ typedef unsigned long long int __u_quad_t;$/;"	t	file:
+__u_short	link/pl.c	/^typedef unsigned short int __u_short;$/;"	t	file:
+__uid_t	link/pl.c	/^__extension__ typedef unsigned int __uid_t;$/;"	t	file:
+__uint16_t	link/pl.c	/^typedef unsigned short int __uint16_t;$/;"	t	file:
+__uint32_t	link/pl.c	/^typedef unsigned int __uint32_t;$/;"	t	file:
+__uint64_t	link/pl.c	/^__extension__ typedef unsigned long long int __uint64_t;$/;"	t	file:
+__uint8_t	link/pl.c	/^typedef unsigned char __uint8_t;$/;"	t	file:
+__uptr	link/pl.c	/^    union wait *__uptr;$/;"	m	union:__anon8	typeref:union:__anon8::wait	file:
+__useconds_t	link/pl.c	/^__extension__ typedef unsigned int __useconds_t;$/;"	t	file:
+__val	link/pl.c	/^    unsigned long int __val[(1024 \/ (8 * sizeof (unsigned long int)))];$/;"	m	struct:__anon12	file:
+__val	link/pl.c	/^__extension__ typedef struct { int __val[2]; } __fsid_t;$/;"	m	struct:__anon1	file:
+__value	link/pl.c	/^  } __value;$/;"	m	struct:__anon2	typeref:union:__anon2::__anon3	file:
+__w_coredump	link/pl.c	/^ unsigned int __w_coredump:1;$/;"	m	struct:wait::__anon6	file:
+__w_retcode	link/pl.c	/^ unsigned int __w_retcode:8;$/;"	m	struct:wait::__anon6	file:
+__w_stopsig	link/pl.c	/^ unsigned int __w_stopsig:8;$/;"	m	struct:wait::__anon7	file:
+__w_stopval	link/pl.c	/^ unsigned int __w_stopval:8;$/;"	m	struct:wait::__anon7	file:
+__w_termsig	link/pl.c	/^ unsigned int __w_termsig:7;$/;"	m	struct:wait::__anon6	file:
+__wait_stopped	link/pl.c	/^      } __wait_stopped;$/;"	m	union:wait	typeref:struct:wait::__anon7	file:
+__wait_terminated	link/pl.c	/^      } __wait_terminated;$/;"	m	union:wait	typeref:struct:wait::__anon6	file:
+__wakeup_seq	link/pl.c	/^    __extension__ unsigned long long int __wakeup_seq;$/;"	m	struct:__anon18::__anon19	file:
+__wch	link/pl.c	/^    unsigned int __wch;$/;"	m	union:__anon2::__anon3	file:
+__wchb	link/pl.c	/^    char __wchb[4];$/;"	m	union:__anon2::__anon3	file:
+__woken_seq	link/pl.c	/^    __extension__ unsigned long long int __woken_seq;$/;"	m	struct:__anon18::__anon19	file:
+__writer	link/pl.c	/^    int __writer;$/;"	m	struct:__anon21::__anon22	file:
+__writer_wakeup	link/pl.c	/^    unsigned int __writer_wakeup;$/;"	m	struct:__anon21::__anon22	file:
+__x	link/pl.c	/^    unsigned short int __x[3];$/;"	m	struct:drand48_data	file:
+_chain	link/pl.c	/^  struct _IO_FILE *_chain;$/;"	m	struct:_IO_FILE	typeref:struct:_IO_FILE::_IO_FILE	file:
+_cur_column	link/pl.c	/^  unsigned short _cur_column;$/;"	m	struct:_IO_FILE	file:
+_fileno	link/pl.c	/^  int _fileno;$/;"	m	struct:_IO_FILE	file:
+_flags	link/pl.c	/^  int _flags;$/;"	m	struct:_IO_FILE	file:
+_flags2	link/pl.c	/^  int _flags2;$/;"	m	struct:_IO_FILE	file:
+_lock	link/pl.c	/^  _IO_lock_t *_lock;$/;"	m	struct:_IO_FILE	file:
+_markers	link/pl.c	/^  struct _IO_marker *_markers;$/;"	m	struct:_IO_FILE	typeref:struct:_IO_FILE::_IO_marker	file:
+_mode	link/pl.c	/^  int _mode;$/;"	m	struct:_IO_FILE	file:
+_next	link/pl.c	/^  struct _IO_marker *_next;$/;"	m	struct:_IO_marker	typeref:struct:_IO_marker::_IO_marker	file:
+_offset	link/pl.c	/^  __off64_t _offset;$/;"	m	struct:_IO_FILE	file:
+_old_offset	link/pl.c	/^  __off_t _old_offset;$/;"	m	struct:_IO_FILE	file:
+_pos	link/pl.c	/^  int _pos;$/;"	m	struct:_IO_marker	file:
+_sbuf	link/pl.c	/^  struct _IO_FILE *_sbuf;$/;"	m	struct:_IO_marker	typeref:struct:_IO_marker::_IO_FILE	file:
+_shortbuf	link/pl.c	/^  char _shortbuf[1];$/;"	m	struct:_IO_FILE	file:
+_stack	stack/stack.h	/^struct _stack$/;"	s
+_unused2	link/pl.c	/^  char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];$/;"	m	struct:_IO_FILE	file:
+_vtable_offset	link/pl.c	/^  signed char _vtable_offset;$/;"	m	struct:_IO_FILE	file:
+blkcnt_t	link/pl.c	/^typedef __blkcnt_t blkcnt_t;$/;"	t	file:
+blksize_t	link/pl.c	/^typedef __blksize_t blksize_t;$/;"	t	file:
 bool	include/MyAlgo.h	/^typedef int bool;$/;"	t
 build_max_heap	heap/heap.c	/^int build_max_heap(void *array, int32_t nelem, size_t elem_size, int32_t offset, const char *ele_type)$/;"	f
+button	stack/stack.h	/^        void *button;$/;"	m	struct:_stack
+caddr_t	link/pl.c	/^typedef __caddr_t caddr_t;$/;"	t	file:
+clock_t	link/pl.c	/^typedef __clock_t clock_t;$/;"	t	file:
+clockid_t	link/pl.c	/^typedef __clockid_t clockid_t;$/;"	t	file:
 cmptest	common/common.c	/^void cmptest(const char *type, void *a_addr, void *b_addr)$/;"	f
+daddr_t	link/pl.c	/^typedef __daddr_t daddr_t;$/;"	t	file:
+dev_t	link/pl.c	/^typedef __dev_t dev_t;$/;"	t	file:
+div_t	link/pl.c	/^  } div_t;$/;"	t	typeref:struct:__anon9	file:
+drand48_data	link/pl.c	/^struct drand48_data$/;"	s	file:
+elem_size	stack/stack.h	/^        int elem_size;$/;"	m	struct:_stack
+end_ptr	link/pl.c	/^    int32_t *end_ptr;$/;"	m	struct:random_data	file:
+fd_mask	link/pl.c	/^typedef __fd_mask fd_mask;$/;"	t	file:
+fd_set	link/pl.c	/^  } fd_set;$/;"	t	typeref:struct:__anon13	file:
+fpos_t	link/pl.c	/^typedef _G_fpos_t fpos_t;$/;"	t	file:
+fptr	link/pl.c	/^    int32_t *fptr;$/;"	m	struct:random_data	file:
+free	stack/stack.h	/^        bool free;$/;"	m	struct:_stack
+free_addr	link/link.h	/^        struct link_list *free_addr;$/;"	m	struct:link	typeref:struct:link::link_list
+free_addr	link/pl.c	/^        struct link_list *free_addr;$/;"	m	struct:link	typeref:struct:link::link_list	file:
+fsblkcnt_t	link/pl.c	/^typedef __fsblkcnt_t fsblkcnt_t;$/;"	t	file:
+fsfilcnt_t	link/pl.c	/^typedef __fsfilcnt_t fsfilcnt_t;$/;"	t	file:
+fsid_t	link/pl.c	/^typedef __fsid_t fsid_t;$/;"	t	file:
+get_new_link	link/link.c	23;"	d	file:
+get_new_link_node	link/link.c	34;"	d	file:
+get_stack	stack/stack.c	/^stack_t get_stack(int elem_nr, size_t elem_size)$/;"	f
+gid_t	link/pl.c	/^typedef __gid_t gid_t;$/;"	t	file:
+heap_sort	heap/heap.c	/^int heap_sort(void *array, int32_t nelem, size_t elem_size, int32_t offset, const char *ele_type, bool build)$/;"	f
+id_t	link/pl.c	/^typedef __id_t id_t;$/;"	t	file:
+ino_t	link/pl.c	/^typedef __ino_t ino_t;$/;"	t	file:
 int16_t	include/MyAlgo.h	/^typedef short int16_t;$/;"	t
+int16_t	link/pl.c	/^typedef int int16_t __attribute__ ((__mode__ (__HI__)));$/;"	t	file:
 int32_t	include/MyAlgo.h	/^typedef int int32_t;$/;"	t
+int32_t	link/pl.c	/^typedef int int32_t __attribute__ ((__mode__ (__SI__)));$/;"	t	file:
 int64_t	include/MyAlgo.h	/^typedef long long int64_t;$/;"	t
+int64_t	link/pl.c	/^typedef int int64_t __attribute__ ((__mode__ (__DI__)));$/;"	t	file:
 int8_t	include/MyAlgo.h	/^typedef signed char int8_t;$/;"	t
+int8_t	link/pl.c	/^typedef int int8_t __attribute__ ((__mode__ (__QI__)));$/;"	t	file:
+key_t	link/pl.c	/^typedef __key_t key_t;$/;"	t	file:
+ldiv_t	link/pl.c	/^  } ldiv_t;$/;"	t	typeref:struct:__anon10	file:
+link	link/link.h	/^struct link{$/;"	s
+link	link/pl.c	/^struct link{$/;"	s	file:
+link_delete_head	link/link.c	63;"	d	file:
+link_delete_tail	link/link.c	71;"	d	file:
+link_head_insert	link/link.c	40;"	d	file:
+link_list	link/link.h	/^struct link_list$/;"	s
+link_list	link/pl.c	/^struct link_list$/;"	s	file:
+link_list	test/tl.c	/^struct link_list$/;"	s	file:
+link_list_free_node	link/link.c	38;"	d	file:
+link_list_next	link/link.c	37;"	d	file:
+link_list_prev	link/link.c	36;"	d	file:
+link_tail_insert	link/link.c	50;"	d	file:
+lldiv_t	link/pl.c	/^  } lldiv_t;$/;"	t	typeref:struct:__anon11	file:
+loff_t	link/pl.c	/^typedef __loff_t loff_t;$/;"	t	file:
+main	link/link.c	/^int main()$/;"	f
+main	link/pl.c	/^int main()$/;"	f
 main	main.c	/^int main()$/;"	f
 main	test/test.c	/^int main()$/;"	f
+main	test/tl.c	/^int main()$/;"	f
 max_heapify	heap/heap.c	/^void max_heapify(void *array, int i, int32_t nelem, size_t elem_size, int32_t offset, int i_type)$/;"	f
+mode_t	link/pl.c	/^typedef __mode_t mode_t;$/;"	t	file:
+n	test/tl.c	/^        struct link_list *n;$/;"	m	struct:plink	typeref:struct:plink::link_list	file:
+next	link/link.h	/^        struct link_list *next;$/;"	m	struct:link	typeref:struct:link::link_list
+next	link/pl.c	/^        struct link_list *next;$/;"	m	struct:link	typeref:struct:link::link_list	file:
+nlink_t	link/pl.c	/^typedef __nlink_t nlink_t;$/;"	t	file:
+off_t	link/pl.c	/^typedef __off_t off_t;$/;"	t	file:
+p	test/tl.c	/^        struct link_list *p;$/;"	m	struct:plink	typeref:struct:plink::link_list	file:
+p	test/tl.c	/^        struct plink *p;$/;"	m	struct:link_list	typeref:struct:link_list::plink	file:
+pdata	link/link.h	/^        void *pdata;$/;"	m	struct:link_list
+pdata	link/pl.c	/^        void *pdata;$/;"	m	struct:link_list	file:
+pdata	test/tl.c	/^        void *pdata;$/;"	m	struct:link_list	file:
+pid_t	link/pl.c	/^typedef __pid_t pid_t;$/;"	t	file:
+plink	link/link.h	/^        struct link plink;$/;"	m	struct:link_list	typeref:struct:link_list::link
+plink	link/pl.c	/^        struct link plink;$/;"	m	struct:link_list	typeref:struct:link_list::link	file:
+plink	test/tl.c	/^struct plink$/;"	s	file:
+pop	stack/stack.c	16;"	d	file:
+prev	link/link.h	/^        struct link_list *prev;$/;"	m	struct:link	typeref:struct:link::link_list
+prev	link/pl.c	/^        struct link_list *prev;$/;"	m	struct:link	typeref:struct:link::link_list	file:
+pthread_attr_t	link/pl.c	/^} pthread_attr_t;$/;"	t	typeref:union:__anon14	file:
+pthread_barrier_t	link/pl.c	/^} pthread_barrier_t;$/;"	t	typeref:union:__anon24	file:
+pthread_barrierattr_t	link/pl.c	/^} pthread_barrierattr_t;$/;"	t	typeref:union:__anon25	file:
+pthread_cond_t	link/pl.c	/^} pthread_cond_t;$/;"	t	typeref:union:__anon18	file:
+pthread_condattr_t	link/pl.c	/^} pthread_condattr_t;$/;"	t	typeref:union:__anon20	file:
+pthread_key_t	link/pl.c	/^typedef unsigned int pthread_key_t;$/;"	t	file:
+pthread_mutex_t	link/pl.c	/^} pthread_mutex_t;$/;"	t	typeref:union:__anon15	file:
+pthread_mutexattr_t	link/pl.c	/^} pthread_mutexattr_t;$/;"	t	typeref:union:__anon17	file:
+pthread_once_t	link/pl.c	/^typedef int pthread_once_t;$/;"	t	file:
+pthread_rwlock_t	link/pl.c	/^} pthread_rwlock_t;$/;"	t	typeref:union:__anon21	file:
+pthread_rwlockattr_t	link/pl.c	/^} pthread_rwlockattr_t;$/;"	t	typeref:union:__anon23	file:
+pthread_spinlock_t	link/pl.c	/^typedef volatile int pthread_spinlock_t;$/;"	t	file:
+pthread_t	link/pl.c	/^typedef unsigned long int pthread_t;$/;"	t	file:
+push	stack/stack.c	5;"	d	file:
+quad_t	link/pl.c	/^typedef __quad_t quad_t;$/;"	t	file:
+quot	link/pl.c	/^    int quot;$/;"	m	struct:__anon9	file:
+quot	link/pl.c	/^    long int quot;$/;"	m	struct:__anon10	file:
+quot	link/pl.c	/^    long long int quot;$/;"	m	struct:__anon11	file:
+rand_deg	link/pl.c	/^    int rand_deg;$/;"	m	struct:random_data	file:
+rand_sep	link/pl.c	/^    int rand_sep;$/;"	m	struct:random_data	file:
+rand_type	link/pl.c	/^    int rand_type;$/;"	m	struct:random_data	file:
+random_data	link/pl.c	/^struct random_data$/;"	s	file:
+register_t	link/pl.c	/^typedef int register_t __attribute__ ((__mode__ (__word__)));$/;"	t	file:
+rem	link/pl.c	/^    int rem;$/;"	m	struct:__anon9	file:
+rem	link/pl.c	/^    long int rem;$/;"	m	struct:__anon10	file:
+rem	link/pl.c	/^    long long int rem;$/;"	m	struct:__anon11	file:
+rptr	link/pl.c	/^    int32_t *rptr;$/;"	m	struct:random_data	file:
 select_cmp_type	common/common.c	/^int select_cmp_type(const char *type)$/;"	f
+sigset_t	link/pl.c	/^typedef __sigset_t sigset_t;$/;"	t	file:
+size_t	link/pl.c	/^typedef unsigned int size_t;$/;"	t	file:
+sp	stack/stack.h	/^        void *sp;$/;"	m	struct:_stack
+ssize_t	link/pl.c	/^typedef __ssize_t ssize_t;$/;"	t	file:
+stack	stack/stack.h	/^}stack[MAX_STACK_NR];$/;"	v	typeref:struct:_stack
+stack_destory	stack/stack.c	22;"	d	file:
+stack_init	stack/stack.c	/^void stack_init(int nr)$/;"	f
+stack_size	stack/stack.h	/^        int stack_size;$/;"	m	struct:_stack
+stack_t	include/MyAlgo.h	/^typedef int stack_t;$/;"	t
+stack_test	stack/stack.c	/^void stack_test()$/;"	f
+state	link/pl.c	/^    int32_t *state;$/;"	m	struct:random_data	file:
+suseconds_t	link/pl.c	/^typedef __suseconds_t suseconds_t;$/;"	t	file:
 test_main	heap/heap.c	/^void test_main()$/;"	f
+time_t	link/pl.c	/^typedef __time_t time_t;$/;"	t	file:
+timer_t	link/pl.c	/^typedef __timer_t timer_t;$/;"	t	file:
+timespec	link/pl.c	/^struct timespec$/;"	s	file:
+timeval	link/pl.c	/^struct timeval$/;"	s	file:
+top	stack/stack.h	/^        void *top;$/;"	m	struct:_stack
+tv_nsec	link/pl.c	/^    long int tv_nsec;$/;"	m	struct:timespec	file:
+tv_sec	link/pl.c	/^    __time_t tv_sec;$/;"	m	struct:timespec	file:
+tv_sec	link/pl.c	/^    __time_t tv_sec;$/;"	m	struct:timeval	file:
+tv_usec	link/pl.c	/^    __suseconds_t tv_usec;$/;"	m	struct:timeval	file:
+u_char	link/pl.c	/^typedef __u_char u_char;$/;"	t	file:
+u_int	link/pl.c	/^typedef __u_int u_int;$/;"	t	file:
+u_int16_t	link/pl.c	/^typedef unsigned int u_int16_t __attribute__ ((__mode__ (__HI__)));$/;"	t	file:
+u_int32_t	link/pl.c	/^typedef unsigned int u_int32_t __attribute__ ((__mode__ (__SI__)));$/;"	t	file:
+u_int64_t	link/pl.c	/^typedef unsigned int u_int64_t __attribute__ ((__mode__ (__DI__)));$/;"	t	file:
+u_int8_t	link/pl.c	/^typedef unsigned int u_int8_t __attribute__ ((__mode__ (__QI__)));$/;"	t	file:
+u_long	link/pl.c	/^typedef __u_long u_long;$/;"	t	file:
+u_quad_t	link/pl.c	/^typedef __u_quad_t u_quad_t;$/;"	t	file:
+u_short	link/pl.c	/^typedef __u_short u_short;$/;"	t	file:
+uid_t	link/pl.c	/^typedef __uid_t uid_t;$/;"	t	file:
+uint	link/pl.c	/^typedef unsigned int uint;$/;"	t	file:
 uint16_t	include/MyAlgo.h	/^typedef unsigned short uint16_t;$/;"	t
 uint32_t	include/MyAlgo.h	/^typedef unsigned int uint32_t;$/;"	t
 uint64_t	include/MyAlgo.h	/^typedef unsigned long long uint64_t;$/;"	t
 uint8_t	include/MyAlgo.h	/^typedef unsigned char uint8_t;$/;"	t
+ulong	link/pl.c	/^typedef unsigned long int ulong;$/;"	t	file:
+ushort	link/pl.c	/^typedef unsigned short int ushort;$/;"	t	file:
+va_list	link/pl.c	/^typedef __gnuc_va_list va_list;$/;"	t	file:
 val_type	common/common.c	/^const char val_type[][8] = $/;"	v
 valcmp	common/common.c	/^int valcmp(int type, void *a_addr, void *b_addr) $/;"	f
+w_status	link/pl.c	/^    int w_status;$/;"	m	union:wait	file:
+wait	link/pl.c	/^union wait$/;"	u	file:

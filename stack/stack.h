@@ -9,6 +9,5 @@ struct _stack
         int stack_size;
         bool free;
 }stack[MAX_STACK_NR];
-
 stack_t get_stack(int elem_nr, size_t elem_size);
 void stack_test();

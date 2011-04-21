@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <stack/stack.h>
+#include <link/link.h>
 int main()
 {
-        stack_test();
+        link_test();
         return 0;
 }
