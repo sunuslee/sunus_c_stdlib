@@ -1,81 +1,72 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#define push(stack_t, ele_addr)  do                                                                                     \
+#include "stack/stack.h"
+#include "common/common.h"
+#define push(stack_name, ele_addr)  do                                                                                  \
 {                                                                                                                       \
-        if(((uint32_t)stack[stack_t].sp + (uint32_t)(stack[stack_t].elem_size)) > (uint32_t)stack[stack_t].top)         \
+        if(((uint32_t)(stack_name->sp) + (uint32_t)(stack_name->elem_size)) > (uint32_t)stack_name->top)                \
         {                                                                                                               \
                 printf("ERROR : sp + elem_size > top\n");                                                               \
                 break;                                                                                                  \
         }                                                                                                               \
-        stack[stack_t].sp += stack[stack_t].elem_size;                                                                  \
-        memmove(stack[stack_t].sp, (void *)ele_addr, stack[stack_t].elem_size);                                         \
-}while(0)
+        stack_name->sp += stack_name->elem_size;                                                                        \
+        memmove(stack_name->sp, (void *)ele_addr, stack_name->elem_size);                                               \
+}while(0)                                                                                                               
 
-#define pop(stack_t)                                                                                                    \
-                (stack[stack_t].sp - stack[stack_t].elem_size) >= stack[stack_t].button ?                               \
-        stack[stack_t].sp -= stack[stack_t].elem_size , (void *)(stack[stack_t].sp + stack[stack_t].elem_size)          \
+#define pop(stack_name)                                                                                                 \
+                (stack_name->sp - stack_name->elem_size) >= stack_name->button ?                                        \
+        stack_name->sp -= stack_name->elem_size , (void *)(stack_name->sp + stack_name->elem_size)                      \
         :                                                                                                               \
         NULL                                                                                                            
 
-#define stack_destory(stack_t)                                                                                          \
+#define stack_destory(stack_name)                                                                                       \
 do                                                                                                                      \
 {                                                                                                                       \
-        if(stack[stack_t].free == TRUE)                                                                                 \
+        if(stack_name->button == NULL)                                                                                  \
+                printf("STACK CANNOT FREE! BUTTON == NULL\n")                                                           \
+        free(stack_name->button);                                                                                       \
+        if(stack_name->free == NULL)                                                                                    \
                 break;                                                                                                  \
-        free(stack[stack_t].button);                                                                                    \
-        stack[stack_t].free = TRUE;                                                                                     \
+        free(stack_name->free)                                                                                          \
 }while(0)
-void stack_init(int nr)
+
+#define get_stack(stack_name, elem_nr, elem_size)                                                                       \
+struct _stack *stack_name;                                                                                              \
+do                                                                                                                      \
+{                                                                                                                       \
+MALLOC_S(struct _stack, stack_name, sizeof(struct _stack));                                                             \
+if(_get_stack(stack_name, elem_nr, elem_size) == 0)                                                                     \
+        printf("get stack succeed!\n");                                                                                 \
+else                                                                                                                    \
+        printf("get stack fail!\n");                                                                                    \
+}while(0)                                                                                                               
+
+int _get_stack(struct _stack *stack_name, int elem_nr, size_t elem_size)
 {
-        int i;
-        for(i = 0; i < nr; i++)
-                stack[i].free = TRUE;
-}
-stack_t get_stack(int elem_nr, size_t elem_size)
-{
-        int i;
         int size = elem_size * elem_nr;
-        for(i = 0; i < MAX_STACK_NR; i++)
-        {
-                if(stack[i].free == TRUE)
-                {
-                        stack[i].button = malloc(size);
-                        if(stack[i].button == NULL)
-                                printf("%s ERROR : Out Of Memory!\n",__func__);
-                        stack[i].top = stack[i].button + size;
-                        stack[i].sp = stack[i].button;
-                        stack[i].elem_size = elem_size;
-                        stack[i].stack_size = size;
-                        stack[i].free = FALSE;
-                        return i;
-                }
-        }
-        printf("%s ERROR : No Free Stack Left!\n",__func__);
-        return -1;
+        MALLOC_S(void, stack_name->button, size);
+        stack_name->top = stack_name->button + size;
+        stack_name->sp = stack_name->button;
+        stack_name->elem_size = elem_size;
+        stack_name->stack_size = size;
+        stack_name->free_addr = stack_name;
+        return 0;
 }
+
 void stack_test()
 {
         int i = 0;
         int *p;
-        int st ;
-        stack_init(MAX_STACK_NR);
-        st = get_stack(5, sizeof(int));
-        if(st != -1)
+        get_stack(st,5, sizeof(int));
+        for(i = 0 ; i < 5 ; i++)
         {
-                for(i = 0 ; i < 6 ; i++)
-                {
-                        push(st,&i);
-                }
-                for(i = 0; i < 6 ; i++)
-                {
-                        p = (int *)pop(st);
-                        printf("p = %08x\n",(uint32_t)p);
-                        if(p != NULL)
-                                printf("*p = %d poped\n",*p);
-                        else
-                                printf("p == NULL!\n");
-                }
+                push(st,&i);
         }
-
+        for(i = 0; i < 5 ; i++)
+        {
+                p = (int *)(pop(st));
+                printf("p = %08x\n",(uint32_t)p);
+                if(p != NULL)
+                        printf("*p = %d poped\n",*p);
+                else
+                        printf("p == NULL!\n");
+        }
 }

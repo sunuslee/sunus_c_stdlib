@@ -5,11 +5,13 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 CALLOC_S	common/common.h	19;"	d
+CALLOC_S	stack/test.c	24;"	d	file:
 CFLAGS	Makefile	/^CFLAGS := -Wall -std=c99 -g -I$(TOP)$/;"	m
 FALSE	include/MyAlgo.h	20;"	d
 FILE	link/pl.c	/^typedef struct _IO_FILE FILE;$/;"	t	typeref:struct:_IO_FILE	file:
 LEFT	heap/heap.c	4;"	d	file:
 MALLOC_S	common/common.h	10;"	d
+MALLOC_S	stack/test.c	15;"	d	file:
 MAX	include/MyAlgo.h	28;"	d
 MAX_STACK_NR	stack/stack.h	2;"	d
 MIN	include/MyAlgo.h	35;"	d
@@ -192,6 +194,8 @@ _cur_column	link/pl.c	/^  unsigned short _cur_column;$/;"	m	struct:_IO_FILE	file
 _fileno	link/pl.c	/^  int _fileno;$/;"	m	struct:_IO_FILE	file:
 _flags	link/pl.c	/^  int _flags;$/;"	m	struct:_IO_FILE	file:
 _flags2	link/pl.c	/^  int _flags2;$/;"	m	struct:_IO_FILE	file:
+_get_stack	stack/stack.c	/^int _get_stack(struct _stack *stack_name, int elem_nr, size_t elem_size)$/;"	f
+_get_stack	stack/test.c	/^int _get_stack(struct _stack *stack_name, int elem_nr, size_t elem_size)$/;"	f
 _lock	link/pl.c	/^  _IO_lock_t *_lock;$/;"	m	struct:_IO_FILE	file:
 _markers	link/pl.c	/^  struct _IO_marker *_markers;$/;"	m	struct:_IO_FILE	typeref:struct:_IO_FILE::_IO_marker	file:
 _mode	link/pl.c	/^  int _mode;$/;"	m	struct:_IO_FILE	file:
@@ -202,6 +206,7 @@ _pos	link/pl.c	/^  int _pos;$/;"	m	struct:_IO_marker	file:
 _sbuf	link/pl.c	/^  struct _IO_FILE *_sbuf;$/;"	m	struct:_IO_marker	typeref:struct:_IO_marker::_IO_FILE	file:
 _shortbuf	link/pl.c	/^  char _shortbuf[1];$/;"	m	struct:_IO_FILE	file:
 _stack	stack/stack.h	/^struct _stack$/;"	s
+_stack	stack/test.c	/^struct _stack$/;"	s	file:
 _unused2	link/pl.c	/^  char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];$/;"	m	struct:_IO_FILE	file:
 _vtable_offset	link/pl.c	/^  signed char _vtable_offset;$/;"	m	struct:_IO_FILE	file:
 blkcnt_t	link/pl.c	/^typedef __blkcnt_t blkcnt_t;$/;"	t	file:
@@ -209,6 +214,7 @@ blksize_t	link/pl.c	/^typedef __blksize_t blksize_t;$/;"	t	file:
 bool	include/MyAlgo.h	/^typedef int bool;$/;"	t
 build_max_heap	heap/heap.c	/^int build_max_heap(void *array, int32_t nelem, size_t elem_size, int32_t offset, const char *ele_type)$/;"	f
 button	stack/stack.h	/^        void *button;$/;"	m	struct:_stack
+button	stack/test.c	/^        void *button;$/;"	m	struct:_stack	file:
 caddr_t	link/pl.c	/^typedef __caddr_t caddr_t;$/;"	t	file:
 clock_t	link/pl.c	/^typedef __clock_t clock_t;$/;"	t	file:
 clockid_t	link/pl.c	/^typedef __clockid_t clockid_t;$/;"	t	file:
@@ -218,20 +224,23 @@ dev_t	link/pl.c	/^typedef __dev_t dev_t;$/;"	t	file:
 div_t	link/pl.c	/^  } div_t;$/;"	t	typeref:struct:__anon9	file:
 drand48_data	link/pl.c	/^struct drand48_data$/;"	s	file:
 elem_size	stack/stack.h	/^        int elem_size;$/;"	m	struct:_stack
+elem_size	stack/test.c	/^        int elem_size;$/;"	m	struct:_stack	file:
 end_ptr	link/pl.c	/^    int32_t *end_ptr;$/;"	m	struct:random_data	file:
 fd_mask	link/pl.c	/^typedef __fd_mask fd_mask;$/;"	t	file:
 fd_set	link/pl.c	/^  } fd_set;$/;"	t	typeref:struct:__anon13	file:
 fpos_t	link/pl.c	/^typedef _G_fpos_t fpos_t;$/;"	t	file:
 fptr	link/pl.c	/^    int32_t *fptr;$/;"	m	struct:random_data	file:
-free	stack/stack.h	/^        bool free;$/;"	m	struct:_stack
 free_addr	link/link.h	/^        struct link_list *free_addr;$/;"	m	struct:link	typeref:struct:link::link_list
 free_addr	link/pl.c	/^        struct link_list *free_addr;$/;"	m	struct:link	typeref:struct:link::link_list	file:
+free_addr	stack/stack.h	/^        struct _stack *free_addr;$/;"	m	struct:_stack	typeref:struct:_stack::_stack
+free_addr	stack/test.c	/^        struct _stack *free_addr;$/;"	m	struct:_stack	typeref:struct:_stack::_stack	file:
 fsblkcnt_t	link/pl.c	/^typedef __fsblkcnt_t fsblkcnt_t;$/;"	t	file:
 fsfilcnt_t	link/pl.c	/^typedef __fsfilcnt_t fsfilcnt_t;$/;"	t	file:
 fsid_t	link/pl.c	/^typedef __fsid_t fsid_t;$/;"	t	file:
 get_new_link	link/link.c	6;"	d	file:
 get_new_link_node	link/link.c	17;"	d	file:
-get_stack	stack/stack.c	/^stack_t get_stack(int elem_nr, size_t elem_size)$/;"	f
+get_stack	stack/stack.c	31;"	d	file:
+get_stack	stack/test.c	34;"	d	file:
 gid_t	link/pl.c	/^typedef __gid_t gid_t;$/;"	t	file:
 heap_sort	heap/heap.c	/^int heap_sort(void *array, int32_t nelem, size_t elem_size, int32_t offset, const char *ele_type, bool build)$/;"	f
 id_t	link/pl.c	/^typedef __id_t id_t;$/;"	t	file:
@@ -263,6 +272,7 @@ lldiv_t	link/pl.c	/^  } lldiv_t;$/;"	t	typeref:struct:__anon11	file:
 loff_t	link/pl.c	/^typedef __loff_t loff_t;$/;"	t	file:
 main	link/pl.c	/^int main()$/;"	f
 main	main.c	/^int main()$/;"	f
+main	stack/test.c	/^int main()$/;"	f
 main	test/test.c	/^int main()$/;"	f
 main	test/tl.c	/^int main()$/;"	f
 max_heapify	heap/heap.c	/^void max_heapify(void *array, int i, int32_t nelem, size_t elem_size, int32_t offset, int i_type)$/;"	f
@@ -281,7 +291,7 @@ pid_t	link/pl.c	/^typedef __pid_t pid_t;$/;"	t	file:
 plink	link/link.h	/^        struct link plink;$/;"	m	struct:link_list	typeref:struct:link_list::link
 plink	link/pl.c	/^        struct link plink;$/;"	m	struct:link_list	typeref:struct:link_list::link	file:
 plink	test/tl.c	/^struct plink$/;"	s	file:
-pop	stack/stack.c	16;"	d	file:
+pop	stack/stack.c	14;"	d	file:
 prev	link/link.h	/^        struct link_list *prev;$/;"	m	struct:link	typeref:struct:link::link_list
 prev	link/pl.c	/^        struct link_list *prev;$/;"	m	struct:link	typeref:struct:link::link_list	file:
 pthread_attr_t	link/pl.c	/^} pthread_attr_t;$/;"	t	typeref:union:__anon14	file:
@@ -297,7 +307,7 @@ pthread_rwlock_t	link/pl.c	/^} pthread_rwlock_t;$/;"	t	typeref:union:__anon21	fi
 pthread_rwlockattr_t	link/pl.c	/^} pthread_rwlockattr_t;$/;"	t	typeref:union:__anon23	file:
 pthread_spinlock_t	link/pl.c	/^typedef volatile int pthread_spinlock_t;$/;"	t	file:
 pthread_t	link/pl.c	/^typedef unsigned long int pthread_t;$/;"	t	file:
-push	stack/stack.c	5;"	d	file:
+push	stack/stack.c	3;"	d	file:
 quad_t	link/pl.c	/^typedef __quad_t quad_t;$/;"	t	file:
 quot	link/pl.c	/^    int quot;$/;"	m	struct:__anon9	file:
 quot	link/pl.c	/^    long int quot;$/;"	m	struct:__anon10	file:
@@ -315,11 +325,11 @@ select_cmp_type	common/common.c	/^int select_cmp_type(const char *type)$/;"	f
 sigset_t	link/pl.c	/^typedef __sigset_t sigset_t;$/;"	t	file:
 size_t	link/pl.c	/^typedef unsigned int size_t;$/;"	t	file:
 sp	stack/stack.h	/^        void *sp;$/;"	m	struct:_stack
+sp	stack/test.c	/^        void *sp;$/;"	m	struct:_stack	file:
 ssize_t	link/pl.c	/^typedef __ssize_t ssize_t;$/;"	t	file:
-stack	stack/stack.h	/^}stack[MAX_STACK_NR];$/;"	v	typeref:struct:_stack
-stack_destory	stack/stack.c	22;"	d	file:
-stack_init	stack/stack.c	/^void stack_init(int nr)$/;"	f
+stack_destory	stack/stack.c	20;"	d	file:
 stack_size	stack/stack.h	/^        int stack_size;$/;"	m	struct:_stack
+stack_size	stack/test.c	/^        int stack_size;$/;"	m	struct:_stack	file:
 stack_t	include/MyAlgo.h	/^typedef int stack_t;$/;"	t
 stack_test	stack/stack.c	/^void stack_test()$/;"	f
 state	link/pl.c	/^    int32_t *state;$/;"	m	struct:random_data	file:
@@ -330,6 +340,7 @@ timer_t	link/pl.c	/^typedef __timer_t timer_t;$/;"	t	file:
 timespec	link/pl.c	/^struct timespec$/;"	s	file:
 timeval	link/pl.c	/^struct timeval$/;"	s	file:
 top	stack/stack.h	/^        void *top;$/;"	m	struct:_stack
+top	stack/test.c	/^        void *top;$/;"	m	struct:_stack	file:
 tv_nsec	link/pl.c	/^    long int tv_nsec;$/;"	m	struct:timespec	file:
 tv_sec	link/pl.c	/^    __time_t tv_sec;$/;"	m	struct:timespec	file:
 tv_sec	link/pl.c	/^    __time_t tv_sec;$/;"	m	struct:timeval	file:

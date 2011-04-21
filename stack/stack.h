@@ -7,7 +7,7 @@ struct _stack
         void *sp;
         int elem_size;
         int stack_size;
-        bool free;
-}stack[MAX_STACK_NR];
-stack_t get_stack(int elem_nr, size_t elem_size);
+        struct _stack *free_addr;
+};
+int _get_stack(struct _stack *stack_name, int elem_nr, size_t elem_size);
 void stack_test();
