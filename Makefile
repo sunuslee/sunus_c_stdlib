@@ -20,3 +20,6 @@ main.o : ./main.c ./link/link.h
 	gcc -c $(CFLAGS) ./main.c ./link/link.h
 clean :
 	rm -rf heap_test stack_test stack.o common.o heap.o main.o
+tags :
+	ctags -R
+	cscope -Rbq

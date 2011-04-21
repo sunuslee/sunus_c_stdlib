@@ -1,31 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "link.h"
+#include "common/common.h"
 
-#define MALLOC_S(type, ptr, size)               \
-do                                              \
-{                                               \
-        ptr = (type *)malloc(size);             \
-        if(!ptr)                                \
-                printf("In malloc"              \
-                        "Out Of Memory\n");     \
-}while(0)                                       
-
-#define CALLOC_S(type, ptr, nelem, elem_size)   \
-do                                              \
-{                                               \
-        ptr = (type *)calloc(nelem,elem_size);  \
-        if(!ptr)                                \
-                printf("In calloc"              \
-                        "Out Of Memory\n");     \
-}while(0)                                       
-
-#define get_new_link(head, data)                                         \
-do                                                                       \
-{                                                                        \
-        CALLOC_S(struct link_list, head, 1, sizeof(struct link_list));   \
-        head->plink.free_addr = head;                                    \
-        head->pdata = (void *)(data ? data : NULL) ;                     \
+#define get_new_link(head, data)                                                \
+do                                                                              \
+{                                                                               \
+        CALLOC_S(struct link_list, head, 1, sizeof(struct link_list));          \
+        head->plink.free_addr = head;                                           \
+        head->pdata = (void *)(data ? data : NULL) ;                            \
 }while(0)
 
 /*
@@ -37,35 +20,35 @@ do                                                                       \
 #define link_list_next(ptr)         (ptr->plink).next
 #define link_list_free_node(ptr)        free((ptr->plink).free_addr)
 
-#define link_head_insert(old_head, new_head)                            \
-do                                                                      \
-{                                                                       \
-        link_list_prev(old_head) = new_head;                            \
-        link_list_next(new_head) = old_head;                            \
-        old_head = new_head;                                            \
+#define link_head_insert(old_head, new_head)                                    \
+do                                                                              \
+{                                                                               \
+        link_list_prev(old_head) = new_head;                                    \
+        link_list_next(new_head) = old_head;                                    \
+        old_head = new_head;                                                    \
 }while(0)
 
 
 
-#define link_tail_insert(head, new_tail)                                \
-do                                                                      \
-{                                                                       \
-        for(struct link_list *p = head; ;   )                           \
-                if(link_list_next(p) == NULL)                           \
-                        {                                               \
-                                link_list_next(p) = new_tail;           \
-                                break;                                  \
-                        }                                               \
-                else                                                    \
-                        p = link_list_next(p)                           \
+#define link_tail_insert(head, new_tail)                                        \
+do                                                                              \
+{                                                                               \
+        for(struct link_list *p = head; ;   )                                   \
+                if(link_list_next(p) == NULL)                                   \
+                        {                                                       \
+                                link_list_next(p) = new_tail;                   \
+                                break;                                          \
+                        }                                                       \
+                else                                                            \
+                        p = link_list_next(p)                                   \
 }while(0)
 
-#define link_delete_head(head)                                          \
-do                                                                      \
-{                                                                       \
-        head = link_list_next(head);                                    \
-        free((head->plink.prev)->plink.free_addr);                      \
-        link_list_prev(head) = NULL;                                    \
+#define link_delete_head(head)                                                  \
+do                                                                              \
+{                                                                               \
+        head = link_list_next(head);                                            \
+        free((head->plink.prev)->plink.free_addr);                              \
+        link_list_prev(head) = NULL;                                            \
 }while(0)
 
 #define link_delete_tail(head)                                                  \

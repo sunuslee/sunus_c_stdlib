@@ -1,5 +1,5 @@
 //*#include <include/MyAlgo.h>
-struct link_list;
+//*struct link_list;
 struct link{
         struct link_list *prev;
         struct link_list *next;

@@ -5,13 +5,11 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 CALLOC_S	common/common.h	19;"	d
-CALLOC_S	link/link.c	14;"	d	file:
-CFLAGS	Makefile	/^CFLAGS := -Wall -g -I$(TOP)$/;"	m
+CFLAGS	Makefile	/^CFLAGS := -Wall -std=c99 -g -I$(TOP)$/;"	m
 FALSE	include/MyAlgo.h	20;"	d
 FILE	link/pl.c	/^typedef struct _IO_FILE FILE;$/;"	t	typeref:struct:_IO_FILE	file:
 LEFT	heap/heap.c	4;"	d	file:
 MALLOC_S	common/common.h	10;"	d
-MALLOC_S	link/link.c	5;"	d	file:
 MAX	include/MyAlgo.h	28;"	d
 MAX_STACK_NR	stack/stack.h	2;"	d
 MIN	include/MyAlgo.h	35;"	d
@@ -231,8 +229,8 @@ free_addr	link/pl.c	/^        struct link_list *free_addr;$/;"	m	struct:link	typ
 fsblkcnt_t	link/pl.c	/^typedef __fsblkcnt_t fsblkcnt_t;$/;"	t	file:
 fsfilcnt_t	link/pl.c	/^typedef __fsfilcnt_t fsfilcnt_t;$/;"	t	file:
 fsid_t	link/pl.c	/^typedef __fsid_t fsid_t;$/;"	t	file:
-get_new_link	link/link.c	23;"	d	file:
-get_new_link_node	link/link.c	34;"	d	file:
+get_new_link	link/link.c	6;"	d	file:
+get_new_link_node	link/link.c	17;"	d	file:
 get_stack	stack/stack.c	/^stack_t get_stack(int elem_nr, size_t elem_size)$/;"	f
 gid_t	link/pl.c	/^typedef __gid_t gid_t;$/;"	t	file:
 heap_sort	heap/heap.c	/^int heap_sort(void *array, int32_t nelem, size_t elem_size, int32_t offset, const char *ele_type, bool build)$/;"	f
@@ -250,19 +248,19 @@ key_t	link/pl.c	/^typedef __key_t key_t;$/;"	t	file:
 ldiv_t	link/pl.c	/^  } ldiv_t;$/;"	t	typeref:struct:__anon10	file:
 link	link/link.h	/^struct link{$/;"	s
 link	link/pl.c	/^struct link{$/;"	s	file:
-link_delete_head	link/link.c	63;"	d	file:
-link_delete_tail	link/link.c	71;"	d	file:
-link_head_insert	link/link.c	40;"	d	file:
+link_delete_head	link/link.c	46;"	d	file:
+link_delete_tail	link/link.c	54;"	d	file:
+link_head_insert	link/link.c	23;"	d	file:
 link_list	link/link.h	/^struct link_list$/;"	s
 link_list	link/pl.c	/^struct link_list$/;"	s	file:
 link_list	test/tl.c	/^struct link_list$/;"	s	file:
-link_list_free_node	link/link.c	38;"	d	file:
-link_list_next	link/link.c	37;"	d	file:
-link_list_prev	link/link.c	36;"	d	file:
-link_tail_insert	link/link.c	50;"	d	file:
+link_list_free_node	link/link.c	21;"	d	file:
+link_list_next	link/link.c	20;"	d	file:
+link_list_prev	link/link.c	19;"	d	file:
+link_tail_insert	link/link.c	33;"	d	file:
+link_test	link/link.c	/^void link_test()$/;"	f
 lldiv_t	link/pl.c	/^  } lldiv_t;$/;"	t	typeref:struct:__anon11	file:
 loff_t	link/pl.c	/^typedef __loff_t loff_t;$/;"	t	file:
-main	link/link.c	/^int main()$/;"	f
 main	link/pl.c	/^int main()$/;"	f
 main	main.c	/^int main()$/;"	f
 main	test/test.c	/^int main()$/;"	f
