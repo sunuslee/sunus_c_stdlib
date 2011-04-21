@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "stack.h"
 #define push(stack_t, ele_addr)  do                                                                                     \
 {                                                                                                                       \
         if(((uint32_t)stack[stack_t].sp + (uint32_t)(stack[stack_t].elem_size)) > (uint32_t)stack[stack_t].top)         \
