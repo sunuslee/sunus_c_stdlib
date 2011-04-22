@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <stack/stack.h>
+#include <queue/queue.h>
 int main()
 {
-        stack_test();
+        queue_test();
         return 0;
 }

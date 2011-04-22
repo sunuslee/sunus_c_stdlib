@@ -1,0 +1,2 @@
+ctags -R
+cscope -Rbq

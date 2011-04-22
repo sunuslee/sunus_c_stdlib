@@ -2,8 +2,10 @@
 
 TOP = .
 CFLAGS := -Wall -std=c99 -g -I$(TOP)
-stack_test: stack.o main.o common.o
-	gcc -o stack_test stack.o main.o common.o
+queue_test: queue.o main.o common.o
+	gcc -o queue_test queue.o main.o common.o
+queue.o : ./queue/queue.c ./queue/queue.h ./common/common.h
+	gcc -c $(CFLAGS) ./queue/queue.c ./queue/queue.h ./common/common.h
 stack.o : ./stack/stack.c ./stack/stack.h common/common.h
 	gcc -c $(CFLAGS) ./stack/stack.c ./stack/stack.h common/common.h
 common.o : ./common/common.c ./common/common.h ./include/MyAlgo.h
@@ -18,6 +20,4 @@ main.o : ./main.c ./stack/stack.h
 	gcc -c $(CFLAGS) ./main.c ./stack/stack.h
 clean :
 	rm -rf heap_test stack_test stack.o common.o heap.o main.o
-tags :
-	ctags -R
-	cscope -Rbq
+
