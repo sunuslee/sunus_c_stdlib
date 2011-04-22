@@ -31,8 +31,8 @@ do                                                                      \
 {                                                                       \
         if(on)                                                          \
                 {                                                       \
-                printf("Debug Info :%s , %d , val = %08x\n",            \
-                                __func__,__LINE__,(uint32_t)(val));     \
+                printf("Debug Info :%s , %s , %d , val = %08x\n",       \
+                        __FILE__,__func__,__LINE__,(uint32_t)(val));    \
                 while(getchar() != 'c')                                 \
                        /* Press 'C' to continue */        ;             \
                 }                                                       \
@@ -48,8 +48,8 @@ do                                                                      \
 {                                                                       \
         if(on)                                                          \
                 {                                                       \
-                printf("Debug Info :%s , %d , val = %08x\n",            \
-                                __func__,__LINE__,(uint32_t)(val));     \
+                printf("Debug Info :%s , %s , %d , val = %08x\n",       \
+                        __FILE__,__func__,__LINE__,(uint32_t)(val));    \
                 printf(info,##__VA_ARGS__);                             \
                         /* ##__VA_ARGS__ is supported by GCC ONLY!*/    \
                 while(getchar() != 'c')                                 \
