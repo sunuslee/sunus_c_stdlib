@@ -253,8 +253,8 @@ void rbtree_test()
         enqueue(check_list, &pc);
         for( i = 0; i < 9; i++)
         {
-                pc = *((struct _rbtree **)dequeue(check_list)); //This Will cause a WARNING,BUT IT WORKS;
-                                                                //Or Use those: 'ppc = dequeue(check_list);pc = *ppc;' WITHOUT WARNING!
+                ppc = dequeue(check_list);
+                pc = *ppc;
                 printf("Node %d (%c) ,Val = %02g ,Left = %02g, Right = %02g\n"
                         ,i,COLOR(pc),VAL(pc),VAL(LEFT(pc)),VAL(RIGHT(pc)));
                 if(LEFT(pc) != &NIL)
