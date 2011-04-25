@@ -2,16 +2,16 @@
 
 TOP = .
 CFLAGS := -Wall -std=gnu99 -g -I$(TOP)
-rbtree_test: main.o rbtree.o  common.o
-	gcc -o rbtree_test main.o rbtree.o common.o
+rbtree_test: main.o rbtree.o  common.o queue.o
+	gcc -o rbtree_test main.o rbtree.o common.o queue.o
 rbtree.o : ./rbtree/rbtree.c ./rbtree/rbtree.h ./common/common.h
 	gcc -c $(CFLAGS) ./rbtree/rbtree.c ./rbtree/rbtree.h ./common/common.h
 queue.o : ./queue/queue.c ./queue/queue.h ./common/common.h
 	gcc -c $(CFLAGS) ./queue/queue.c ./queue/queue.h ./common/common.h
 stack.o : ./stack/stack.c ./stack/stack.h common/common.h
 	gcc -c $(CFLAGS) ./stack/stack.c ./stack/stack.h common/common.h
-common.o : ./common/common.c ./common/common.h ./include/MyAlgo.h
-	gcc -c $(CFLAGS) ./common/common.c ./common/common.h ./include/MyAlgo.h
+common.o : ./common/common.c ./common/common.h
+	gcc -c $(CFLAGS) ./common/common.c ./common/common.h
 heap.o : ./heap/heap.c ./heap/heap.h ./common/common.h
 	gcc -c $(CFLAGS) ./heap/heap.c ./heap/heap.h ./common/common.h
 #main.o : ./main.c ./heap/heap.h

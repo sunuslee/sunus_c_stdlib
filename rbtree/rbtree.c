@@ -1,5 +1,5 @@
-#include "common/common.h"
 #include "rbtree.h"
+#include "queue/queue.h"
 /*      Use VAL_Int Or VAL_DOUBLE as 'type' parameter      */
 #define VAL_INT                 i_val
 #define VAL_DOUBLE              d_val
@@ -213,7 +213,8 @@ void rbtree_test()
         int i = 0;
         struct _rbtree *rooot;
         struct _rbtree *rbt_new;
-        struct _rbtree *check_list[10];
+        struct _rbtree *pc;
+//*        struct _rbtree *check_list[10];
         int head , tail;
         head = tail = 0;
         for( i = 0; i < 9; i++)
@@ -229,21 +230,38 @@ void rbtree_test()
                         COLOR(rooot),(uint32_t)rooot,VAL(rooot));
         }
         printf("check begin!!\n\n");
-        check_list[0] = rooot;
-                for( i = 0; i < 9; i++)
+//*        check_list[0] = rooot;
+//*                for( i = 0; i < 9; i++)
+//*                {
+//*                        printf("Node %d (%c) ,Val = %02g ,Left = %02g, Right = %02g\n"
+//*                                ,i,COLOR(check_list[head]),VAL(check_list[head]),VAL(LEFT(check_list[head])),VAL(RIGHT(check_list[head])));
+//*                        if(LEFT(check_list[head]) != &NIL)
+//*                        {
+//*                                tail++;
+//*                                check_list[tail] = LEFT(check_list[head]);
+//*                        }
+//*                        if(RIGHT(check_list[head]) != &NIL)
+//*                        {
+//*                                tail++;
+//*                                check_list[tail] = RIGHT(check_list[head]);
+//*                        }
+//*                        head++;
+//*                }
+        get_queue(check_list, 20, sizeof(struct _rbtree *));
+        pc = rooot;
+        enqueue(check_list, &pc);
+        for( i = 0; i < 9; i++)
+        {
+                memmove(&pc,dequeue(check_list),4);
+                printf("Node %d (%c) ,Val = %02g ,Left = %02g, Right = %02g\n"
+                        ,i,COLOR(pc),VAL(pc),VAL(LEFT(pc)),VAL(RIGHT(pc)));
+                if(LEFT(pc) != &NIL)
                 {
-                        printf("Node %d (%c) ,Val = %02g ,Left = %02g, Right = %02g\n"
-                                ,i,COLOR(check_list[head]),VAL(check_list[head]),VAL(LEFT(check_list[head])),VAL(RIGHT(check_list[head])));
-                        if(LEFT(check_list[head]) != &NIL)
-                        {
-                                tail++;
-                                check_list[tail] = LEFT(check_list[head]);
-                        }
-                        if(RIGHT(check_list[head]) != &NIL)
-                        {
-                                tail++;
-                                check_list[tail] = RIGHT(check_list[head]);
-                        }
-                        head++;
+                        enqueue(check_list, &(LEFT(pc)));
                 }
+                if(RIGHT(pc) != &NIL)
+                {
+                        enqueue(check_list, &(RIGHT(pc)));
+                }
+        }
 }

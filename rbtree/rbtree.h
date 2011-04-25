@@ -1,3 +1,4 @@
+#include "common/common.h"
 typedef char color_t;
 struct _attr
 {

@@ -4,9 +4,9 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-CALLOC_S	common/common.h	55;"	d
+CALLOC_S	common/common.h	57;"	d
 CALLOC_S	test/prre.c	8;"	d	file:
-CFLAGS	Makefile	/^CFLAGS := -Wall -std=c99 -g -I$(TOP)$/;"	m
+CFLAGS	Makefile	/^CFLAGS := -Wall -std=gnu99 -g -I$(TOP)$/;"	m
 CMP	rbtree/rbtree.c	25;"	d	file:
 CMP	test/prre.c	63;"	d	file:
 CMPTYPE	rbtree/rbtree.c	24;"	d	file:
@@ -17,11 +17,12 @@ CMP_INT	rbtree/rbtree.c	8;"	d	file:
 CMP_INT	test/prre.c	6;"	d	file:
 COLOR	rbtree/rbtree.c	11;"	d	file:
 COLOR	test/prre.c	50;"	d	file:
-DEBUG	common/common.h	65;"	d
+COMMON_H	common/common.h	9;"	d
+DEBUG	common/common.h	67;"	d
 DEBUG	test/debug.c	4;"	d	file:
-DEBUG_ARGS	common/common.h	82;"	d
+DEBUG_ARGS	common/common.h	84;"	d
 DEBUG_ARGS	test/debug.c	16;"	d	file:
-FALSE	common/common.h	21;"	d
+FALSE	common/common.h	23;"	d
 FALSE	include/MyAlgo.h	22;"	d
 FALSE	test/prre.c	4;"	d	file:
 FILE	link/pl.c	/^typedef struct _IO_FILE FILE;$/;"	t	typeref:struct:_IO_FILE	file:
@@ -40,28 +41,29 @@ LEFT	heap/heap.c	4;"	d	file:
 LEFT	rbtree/rbtree.c	12;"	d	file:
 LEFT	test/prre.c	51;"	d	file:
 LEFT_ROTATE	rbtree/rbtree.c	131;"	d	file:
+LEFT_ROTATE	test/prre.c	104;"	d	file:
 LEFT_UNCLE	rbtree/rbtree.c	18;"	d	file:
 LEFT_UNCLE	test/prre.c	57;"	d	file:
-MALLOC_S	common/common.h	46;"	d
-MAX	common/common.h	29;"	d
+MALLOC_S	common/common.h	48;"	d
+MAX	common/common.h	31;"	d
 MAX	include/MyAlgo.h	30;"	d
 MAX	test/p.c	2;"	d	file:
 MAX	test/p.c	4;"	d	file:
 MAX_STACK_NR	stack/stack.h	2;"	d
-MIN	common/common.h	36;"	d
+MIN	common/common.h	38;"	d
 MIN	include/MyAlgo.h	37;"	d
 MN	test/p.c	3;"	d	file:
 NIL	rbtree/rbtree.c	/^static struct _rbtree NIL = {.attr = {NULL, NULL, NULL, 'B',NULL}, .pdata = NULL}; \/\/ *NEVER* free(NIL)!!$/;"	v	typeref:struct:_rbtree	file:
 NIL	test/prre.c	/^static struct _rbtree NIL = {.attr = {NULL, NULL, NULL, 'B',NULL}, .pdata = NULL}; \/\/ *NEVER* free(NIL)!!$/;"	v	typeref:struct:_rbtree	file:
 NIL	test/test.c	/^static struct _rbtree NIL = {.attr = {NULL, NULL, NULL, 'U'}, .pdata = (void *)0x123456};$/;"	v	typeref:struct:_rbtree	file:
-OFFSET	common/common.h	26;"	d
+OFFSET	common/common.h	28;"	d
 OFFSET	include/MyAlgo.h	27;"	d
 P	rbtree/rbtree.c	14;"	d	file:
 P	test/prre.c	53;"	d	file:
 RIGHT	heap/heap.c	5;"	d	file:
 RIGHT	rbtree/rbtree.c	13;"	d	file:
 RIGHT	test/prre.c	52;"	d	file:
-RIGHT_ROTATE	rbtree/rbtree.c	143;"	d	file:
+RIGHT_ROTATE	rbtree/rbtree.c	146;"	d	file:
 RIGHT_UNCLE	rbtree/rbtree.c	17;"	d	file:
 RIGHT_UNCLE	test/prre.c	56;"	d	file:
 SET_VAL	rbtree/rbtree.c	37;"	d	file:
@@ -69,7 +71,7 @@ SET_VAL	test/prre.c	75;"	d	file:
 SET_VAL_WITH_TYPE	rbtree/rbtree.c	36;"	d	file:
 SET_VAL_WITH_TYPE	test/prre.c	74;"	d	file:
 TOP	Makefile	/^TOP = .$/;"	m
-TRUE	common/common.h	22;"	d
+TRUE	common/common.h	24;"	d
 TRUE	include/MyAlgo.h	23;"	d
 TRUE	test/prre.c	5;"	d	file:
 U	test/prre.c	55;"	d	file:
@@ -545,7 +547,7 @@ d_val	rbtree/rbtree.h	/^        double d_val;$/;"	m	union:_val
 d_val	test/prre.c	/^        double d_val;$/;"	m	union:_val	file:
 daddr_t	link/pl.c	/^typedef __daddr_t daddr_t;$/;"	t	file:
 daddr_t	stack/pre.c	/^typedef __daddr_t daddr_t;$/;"	t	file:
-dequeue	queue/queue.c	47;"	d	file:
+dequeue	queue/queue.h	48;"	d
 dev_t	link/pl.c	/^typedef __dev_t dev_t;$/;"	t	file:
 dev_t	stack/pre.c	/^typedef __dev_t dev_t;$/;"	t	file:
 div_t	link/pl.c	/^  } div_t;$/;"	t	typeref:struct:__anon34	file:
@@ -557,7 +559,7 @@ elem_size	stack/pre.c	/^        int elem_size;$/;"	m	struct:_stack	file:
 elem_size	stack/stack.h	/^        int elem_size;$/;"	m	struct:_stack
 end_ptr	link/pl.c	/^    int32_t *end_ptr;$/;"	m	struct:random_data	file:
 end_ptr	stack/pre.c	/^    int32_t *end_ptr;$/;"	m	struct:random_data	file:
-enqueue	queue/queue.c	27;"	d	file:
+enqueue	queue/queue.h	28;"	d
 enum	test/prre.asm	/^enum __codecvt_result$/;"	l
 extern	test/prre.asm	/^extern FILE *fdopen (int __fd, __const char *__modes) __attribute__ ((__nothrow__)) ;$/;"	l
 extern	test/prre.asm	/^extern FILE *fmemopen (void *__s, size_t __len, __const char *__modes)$/;"	l
@@ -697,7 +699,7 @@ fsid_t	link/pl.c	/^typedef __fsid_t fsid_t;$/;"	t	file:
 fsid_t	stack/pre.c	/^typedef __fsid_t fsid_t;$/;"	t	file:
 get_new_link	link/link.c	6;"	d	file:
 get_new_link_node	link/link.c	17;"	d	file:
-get_queue	queue/queue.c	4;"	d	file:
+get_queue	queue/queue.h	17;"	d
 get_rbtree_node	rbtree/rbtree.c	48;"	d	file:
 get_rbtree_node	test/prre.c	86;"	d	file:
 get_rbtree_node_with_name	rbtree/rbtree.c	66;"	d	file:
