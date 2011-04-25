@@ -214,6 +214,7 @@ void rbtree_test()
         struct _rbtree *rooot;
         struct _rbtree *rbt_new;
         struct _rbtree *pc;
+        struct _rbtree **ppc;
 //*        struct _rbtree *check_list[10];
         int head , tail;
         head = tail = 0;
@@ -252,7 +253,8 @@ void rbtree_test()
         enqueue(check_list, &pc);
         for( i = 0; i < 9; i++)
         {
-                memmove(&pc,dequeue(check_list),4);
+                pc = *((struct _rbtree **)dequeue(check_list)); //This Will cause a WARNING,BUT IT WORKS;
+                                                                //Or Use those: 'ppc = dequeue(check_list);pc = *ppc;' WITHOUT WARNING!
                 printf("Node %d (%c) ,Val = %02g ,Left = %02g, Right = %02g\n"
                         ,i,COLOR(pc),VAL(pc),VAL(LEFT(pc)),VAL(RIGHT(pc)));
                 if(LEFT(pc) != &NIL)
