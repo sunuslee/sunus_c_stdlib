@@ -5,7 +5,9 @@
 /*                                                                                                                        */
 /**************************************************************************************************************************/
 
-
+/*
+ *This file is NO LONGER USED! all defines , etc are moved to common/common.h
+ */
 #include <stdio.h>
 typedef signed char int8_t;
 typedef unsigned char uint8_t;

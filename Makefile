@@ -1,9 +1,11 @@
 # This make file is use to parpare my intership exams
 
 TOP = .
-CFLAGS := -Wall -std=c99 -g -I$(TOP)
-queue_test: queue.o main.o common.o
-	gcc -o queue_test queue.o main.o common.o
+CFLAGS := -Wall -std=gnu99 -g -I$(TOP)
+rbtree_test: main.o rbtree.o  common.o
+	gcc -o rbtree_test main.o rbtree.o common.o
+rbtree.o : ./rbtree/rbtree.c ./rbtree/rbtree.h ./common/common.h
+	gcc -c $(CFLAGS) ./rbtree/rbtree.c ./rbtree/rbtree.h ./common/common.h
 queue.o : ./queue/queue.c ./queue/queue.h ./common/common.h
 	gcc -c $(CFLAGS) ./queue/queue.c ./queue/queue.h ./common/common.h
 stack.o : ./stack/stack.c ./stack/stack.h common/common.h

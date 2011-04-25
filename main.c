@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <queue/queue.h>
+#include "rbtree/rbtree.h"
 int main()
 {
-        queue_test();
+        rbtree_test();
         return 0;
 }
