@@ -63,6 +63,8 @@ static struct _rbtree NIL = {.attr = {NULL, NULL, NULL, 'B',NULL}, .pdata = NULL
         FREE_ADDR(name) = name;                                                         \
         name;                                                                           \
 })
+
+
 #define get_rbtree_node_with_name(name, cmptype, _Val, data_addr)                       \
 ({                                                                                      \
         struct _rbtree *name;                                                           \
@@ -209,15 +211,14 @@ void rbt_insert_fixup(struct _rbtree **root,struct _rbtree *node)
 }
 void rbtree_test()
 {
-        int datas[] = {11,1,2,14,15,7,5,4,8};
+        int datas[] = {12,1,9,2,0,11,7,19,4,15,18,5,14,14,13,10,6,3,8,17};
         int i = 0;
         struct _rbtree *rooot;
         struct _rbtree *rbt_new;
         struct _rbtree *pc;
-//*        struct _rbtree *check_list[10];
         int head , tail;
         head = tail = 0;
-        for( i = 0; i < 9; i++)
+        for( i = 0; i < 20; i++)
         {
                 rbt_new = get_rbtree_node(CMP_INT,datas[i],NULL);
                 printf("get new node %08x, Val = %g\n",(uint32_t)rbt_new,VAL(rbt_new));
@@ -246,11 +247,11 @@ void rbtree_test()
 //*                                check_list[tail] = RIGHT(check_list[head]);
 //*                        }
 //*                        head++;
-//*                }
-        get_queue_v2(check_list, 7, struct _rbtree *);
+//*                } THIS queueE ABOVE IS LAME!
+        get_queue_v2(check_list, 10, struct _rbtree *);
         pc = rooot;
         enqueue(check_list, &pc);
-        for( i = 0; i < 9; i++)
+        for( i = 0; i < 20; i++)
         {
                 pc = dequeue_v2(check_list);
                 printf("Node %d (%c) ,Val = %02g ,Left = %02g, Right = %02g\n"
