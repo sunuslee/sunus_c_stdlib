@@ -12,6 +12,36 @@ int _get_queue(struct _queue *queue_name, int elem_nr, int elem_size)
         queue_name->available_slot = elem_nr;
         return 0;
 }
+/* Compare to queue_test, v2 is way better!
+ * So use queue_test_v2!
+ */
+void queue_test_v2()
+{
+        int i;
+        char pdata;
+        char datas[] = "abcde";
+        char datas2[] = "fgh";
+        get_queue_v2(que, 5, char);
+        for(i = 0; i < 5; i++)
+        {
+                enqueue(que, &(datas[i]));
+        }
+        for(i = 0; i < 3; i++)
+        {
+                pdata = dequeue_v2(que);
+                printf("%c dequeued\n",pdata);
+        }
+        for(i = 0; i < 3; i++)
+                enqueue(que, &(datas2[i]));
+        enqueue(que, &(datas[i]));
+        for(i = 0; i < 5; i++)
+        {
+                pdata = dequeue_v2(que);
+                printf("%c dequeued\n",pdata);
+        }
+        pdata = dequeue_v2(que);
+}
+
 
 void queue_test()
 {

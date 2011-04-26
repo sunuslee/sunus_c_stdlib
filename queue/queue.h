@@ -89,5 +89,5 @@ else                                                                            
                         fetch_##queue_name = (queue_name->cur_head - queue_name->elem_size);            \
         }                                                                                               \
 printf("val of %s = %08x\n",name2str(fetch_##queue_name),(uint32_t)fetch_##queue_name);                 \
-fetch_##queue_name;                                                                                     \
+*fetch_##queue_name;                                                                                    \
 })
