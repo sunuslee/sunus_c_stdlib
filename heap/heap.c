@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "heap.h"
-#include <common/common.h>
 #define LEFT(i) (i<<1)
 #define RIGHT(i) ((i<<1) + 1)
 

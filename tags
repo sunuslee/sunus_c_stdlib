@@ -37,7 +37,7 @@ IS_PARENT_LEFT	rbtree/rbtree.c	20;"	d	file:
 IS_PARENT_LEFT	test/prre.c	59;"	d	file:
 IS_UNCLE_LEFT	rbtree/rbtree.c	19;"	d	file:
 IS_UNCLE_LEFT	test/prre.c	58;"	d	file:
-LEFT	heap/heap.c	4;"	d	file:
+LEFT	heap/heap.c	3;"	d	file:
 LEFT	rbtree/rbtree.c	12;"	d	file:
 LEFT	test/prre.c	51;"	d	file:
 LEFT_ROTATE	rbtree/rbtree.c	131;"	d	file:
@@ -49,7 +49,6 @@ MAX	common/common.h	31;"	d
 MAX	include/MyAlgo.h	30;"	d
 MAX	test/p.c	2;"	d	file:
 MAX	test/p.c	4;"	d	file:
-MAX_STACK_NR	stack/stack.h	2;"	d
 MIN	common/common.h	38;"	d
 MIN	include/MyAlgo.h	37;"	d
 MN	test/p.c	3;"	d	file:
@@ -60,7 +59,7 @@ OFFSET	common/common.h	28;"	d
 OFFSET	include/MyAlgo.h	27;"	d
 P	rbtree/rbtree.c	14;"	d	file:
 P	test/prre.c	53;"	d	file:
-RIGHT	heap/heap.c	5;"	d	file:
+RIGHT	heap/heap.c	4;"	d	file:
 RIGHT	rbtree/rbtree.c	13;"	d	file:
 RIGHT	test/prre.c	52;"	d	file:
 RIGHT_ROTATE	rbtree/rbtree.c	146;"	d	file:
@@ -547,7 +546,8 @@ d_val	rbtree/rbtree.h	/^        double d_val;$/;"	m	union:_val
 d_val	test/prre.c	/^        double d_val;$/;"	m	union:_val	file:
 daddr_t	link/pl.c	/^typedef __daddr_t daddr_t;$/;"	t	file:
 daddr_t	stack/pre.c	/^typedef __daddr_t daddr_t;$/;"	t	file:
-dequeue	queue/queue.h	48;"	d
+dequeue	queue/queue.h	63;"	d
+dequeue_new	queue/queue.h	71;"	d
 dev_t	link/pl.c	/^typedef __dev_t dev_t;$/;"	t	file:
 dev_t	stack/pre.c	/^typedef __dev_t dev_t;$/;"	t	file:
 div_t	link/pl.c	/^  } div_t;$/;"	t	typeref:struct:__anon34	file:
@@ -559,7 +559,7 @@ elem_size	stack/pre.c	/^        int elem_size;$/;"	m	struct:_stack	file:
 elem_size	stack/stack.h	/^        int elem_size;$/;"	m	struct:_stack
 end_ptr	link/pl.c	/^    int32_t *end_ptr;$/;"	m	struct:random_data	file:
 end_ptr	stack/pre.c	/^    int32_t *end_ptr;$/;"	m	struct:random_data	file:
-enqueue	queue/queue.h	28;"	d
+enqueue	queue/queue.h	43;"	d
 enum	test/prre.asm	/^enum __codecvt_result$/;"	l
 extern	test/prre.asm	/^extern FILE *fdopen (int __fd, __const char *__modes) __attribute__ ((__nothrow__)) ;$/;"	l
 extern	test/prre.asm	/^extern FILE *fmemopen (void *__s, size_t __len, __const char *__modes)$/;"	l
@@ -697,13 +697,14 @@ fsfilcnt_t	link/pl.c	/^typedef __fsfilcnt_t fsfilcnt_t;$/;"	t	file:
 fsfilcnt_t	stack/pre.c	/^typedef __fsfilcnt_t fsfilcnt_t;$/;"	t	file:
 fsid_t	link/pl.c	/^typedef __fsid_t fsid_t;$/;"	t	file:
 fsid_t	stack/pre.c	/^typedef __fsid_t fsid_t;$/;"	t	file:
-get_new_link	link/link.c	6;"	d	file:
-get_new_link_node	link/link.c	17;"	d	file:
+get_new_link	link/link.h	2;"	d
+get_new_link_node	link/link.h	13;"	d
 get_queue	queue/queue.h	17;"	d
+get_queue_new	queue/queue.h	28;"	d
 get_rbtree_node	rbtree/rbtree.c	48;"	d	file:
 get_rbtree_node	test/prre.c	86;"	d	file:
 get_rbtree_node_with_name	rbtree/rbtree.c	66;"	d	file:
-get_stack	stack/stack.c	31;"	d	file:
+get_stack	stack/stack.h	30;"	d
 gid_t	link/pl.c	/^typedef __gid_t gid_t;$/;"	t	file:
 gid_t	stack/pre.c	/^typedef __gid_t gid_t;$/;"	t	file:
 head	queue/queue.h	/^        void *head;$/;"	m	struct:_queue
@@ -745,16 +746,16 @@ left	test/prre.c	/^        struct _rbtree *left;$/;"	m	struct:_attr	typeref:stru
 left	test/test.c	/^        struct _rbtree *left;$/;"	m	struct:_attr	typeref:struct:_attr::_rbtree	file:
 link	link/link.h	/^struct link{$/;"	s
 link	link/pl.c	/^struct link{$/;"	s	file:
-link_delete_head	link/link.c	46;"	d	file:
-link_delete_tail	link/link.c	54;"	d	file:
-link_head_insert	link/link.c	23;"	d	file:
+link_delete_head	link/link.h	42;"	d
+link_delete_tail	link/link.h	50;"	d
+link_head_insert	link/link.h	19;"	d
 link_list	link/link.h	/^struct link_list$/;"	s
 link_list	link/pl.c	/^struct link_list$/;"	s	file:
 link_list	test/tl.c	/^struct link_list$/;"	s	file:
-link_list_free_node	link/link.c	21;"	d	file:
-link_list_next	link/link.c	20;"	d	file:
-link_list_prev	link/link.c	19;"	d	file:
-link_tail_insert	link/link.c	33;"	d	file:
+link_list_free_node	link/link.h	17;"	d
+link_list_next	link/link.h	16;"	d
+link_list_prev	link/link.h	15;"	d
+link_tail_insert	link/link.h	29;"	d
 link_test	link/link.c	/^void link_test()$/;"	f
 lldiv_t	link/pl.c	/^  } lldiv_t;$/;"	t	typeref:struct:__anon36	file:
 lldiv_t	stack/pre.c	/^  } lldiv_t;$/;"	t	typeref:struct:__anon11	file:
@@ -798,7 +799,7 @@ pid_t	stack/pre.c	/^typedef __pid_t pid_t;$/;"	t	file:
 plink	link/link.h	/^        struct link plink;$/;"	m	struct:link_list	typeref:struct:link_list::link
 plink	link/pl.c	/^        struct link plink;$/;"	m	struct:link_list	typeref:struct:link_list::link	file:
 plink	test/tl.c	/^struct plink$/;"	s	file:
-pop	stack/stack.c	14;"	d	file:
+pop	stack/stack.h	13;"	d
 prev	link/link.h	/^        struct link_list *prev;$/;"	m	struct:link	typeref:struct:link::link_list
 prev	link/pl.c	/^        struct link_list *prev;$/;"	m	struct:link	typeref:struct:link::link_list	file:
 pthread_attr_t	link/pl.c	/^} pthread_attr_t;$/;"	t	typeref:union:__anon39	file:
@@ -827,7 +828,7 @@ pthread_spinlock_t	link/pl.c	/^typedef volatile int pthread_spinlock_t;$/;"	t	fi
 pthread_spinlock_t	stack/pre.c	/^typedef volatile int pthread_spinlock_t;$/;"	t	file:
 pthread_t	link/pl.c	/^typedef unsigned long int pthread_t;$/;"	t	file:
 pthread_t	stack/pre.c	/^typedef unsigned long int pthread_t;$/;"	t	file:
-push	stack/stack.c	3;"	d	file:
+push	stack/stack.h	2;"	d
 quad_t	link/pl.c	/^typedef __quad_t quad_t;$/;"	t	file:
 quad_t	stack/pre.c	/^typedef __quad_t quad_t;$/;"	t	file:
 queue_size	queue/queue.h	/^        int queue_size;$/;"	m	struct:_queue
@@ -871,7 +872,7 @@ sp	stack/pre.c	/^        void *sp;$/;"	m	struct:_stack	file:
 sp	stack/stack.h	/^        void *sp;$/;"	m	struct:_stack
 ssize_t	link/pl.c	/^typedef __ssize_t ssize_t;$/;"	t	file:
 ssize_t	stack/pre.c	/^typedef __ssize_t ssize_t;$/;"	t	file:
-stack_destory	stack/stack.c	20;"	d	file:
+stack_destory	stack/stack.h	19;"	d
 stack_size	stack/pre.c	/^        int stack_size;$/;"	m	struct:_stack	file:
 stack_size	stack/stack.h	/^        int stack_size;$/;"	m	struct:_stack
 stack_t	common/common.h	/^typedef int stack_t;$/;"	t

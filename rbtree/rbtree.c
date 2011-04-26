@@ -248,13 +248,12 @@ void rbtree_test()
 //*                        }
 //*                        head++;
 //*                }
-        get_queue(check_list, 20, sizeof(struct _rbtree *));
+        get_queue_new(check_list, 7, struct _rbtree *);
         pc = rooot;
         enqueue(check_list, &pc);
         for( i = 0; i < 9; i++)
         {
-                ppc = dequeue(check_list);
-                pc = *ppc;
+                pc = *(dequeue_new(check_list));
                 printf("Node %d (%c) ,Val = %02g ,Left = %02g, Right = %02g\n"
                         ,i,COLOR(pc),VAL(pc),VAL(LEFT(pc)),VAL(RIGHT(pc)));
                 if(LEFT(pc) != &NIL)

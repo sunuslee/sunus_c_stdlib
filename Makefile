@@ -18,8 +18,8 @@ heap.o : ./heap/heap.c ./heap/heap.h ./common/common.h
 #	gcc -c $(CFLAGS) ./main.c ./heap/heap.h 
 link.o : ./link/link.c ./link/link.h ./common/common.h
 	gcc -c $(CFLAGS) ./link/link.c ./link/link.h ./common/common.h
-main.o : ./main.c ./stack/stack.h
-	gcc -c $(CFLAGS) ./main.c ./stack/stack.h
+main.o : ./main.c ./rbtree/rbtree.h
+	gcc -c $(CFLAGS) ./main.c ./rbtree/rbtree.h
 clean :
-	rm -rf heap_test stack_test stack.o common.o heap.o main.o
+	rm -rf rbtree_test heap_test stack_test *.o
 
