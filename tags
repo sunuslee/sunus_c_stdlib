@@ -7,9 +7,9 @@
 CALLOC_S	common/common.h	57;"	d
 CALLOC_S	test/prre.c	8;"	d	file:
 CFLAGS	Makefile	/^CFLAGS := -Wall -std=gnu99 -g -I$(TOP)$/;"	m
-CMP	rbtree/rbtree.c	25;"	d	file:
+CMP	rbtree/rbtree.c	26;"	d	file:
 CMP	test/prre.c	63;"	d	file:
-CMPTYPE	rbtree/rbtree.c	24;"	d	file:
+CMPTYPE	rbtree/rbtree.c	25;"	d	file:
 CMPTYPE	test/prre.c	62;"	d	file:
 CMP_DOUBLE	rbtree/rbtree.c	9;"	d	file:
 CMP_DOUBLE	test/prre.c	7;"	d	file:
@@ -22,6 +22,7 @@ DEBUG	common/common.h	67;"	d
 DEBUG	test/debug.c	4;"	d	file:
 DEBUG_ARGS	common/common.h	84;"	d
 DEBUG_ARGS	test/debug.c	16;"	d	file:
+DELETE_NODE	rbtree/rbtree.c	88;"	d	file:
 FALSE	common/common.h	23;"	d
 FALSE	include/MyAlgo.h	22;"	d
 FALSE	test/prre.c	4;"	d	file:
@@ -29,20 +30,20 @@ FILE	link/pl.c	/^typedef struct _IO_FILE FILE;$/;"	t	typeref:struct:_IO_FILE	fil
 FILE	stack/pre.c	/^typedef struct _IO_FILE FILE;$/;"	t	typeref:struct:_IO_FILE	file:
 FREE_ADDR	rbtree/rbtree.c	15;"	d	file:
 FREE_ADDR	test/prre.c	54;"	d	file:
-GET_VAL	rbtree/rbtree.c	33;"	d	file:
+GET_VAL	rbtree/rbtree.c	34;"	d	file:
 GET_VAL	test/prre.c	71;"	d	file:
-IS_NODE_LEFT	rbtree/rbtree.c	21;"	d	file:
+IS_NODE_LEFT	rbtree/rbtree.c	22;"	d	file:
 IS_NODE_LEFT	test/prre.c	60;"	d	file:
-IS_PARENT_LEFT	rbtree/rbtree.c	20;"	d	file:
+IS_PARENT_LEFT	rbtree/rbtree.c	21;"	d	file:
 IS_PARENT_LEFT	test/prre.c	59;"	d	file:
-IS_UNCLE_LEFT	rbtree/rbtree.c	19;"	d	file:
+IS_UNCLE_LEFT	rbtree/rbtree.c	20;"	d	file:
 IS_UNCLE_LEFT	test/prre.c	58;"	d	file:
 LEFT	heap/heap.c	3;"	d	file:
 LEFT	rbtree/rbtree.c	12;"	d	file:
 LEFT	test/prre.c	51;"	d	file:
-LEFT_ROTATE	rbtree/rbtree.c	131;"	d	file:
+LEFT_ROTATE	rbtree/rbtree.c	141;"	d	file:
 LEFT_ROTATE	test/prre.c	104;"	d	file:
-LEFT_UNCLE	rbtree/rbtree.c	18;"	d	file:
+LEFT_UNCLE	rbtree/rbtree.c	19;"	d	file:
 LEFT_UNCLE	test/prre.c	57;"	d	file:
 MALLOC_S	common/common.h	48;"	d
 MAX	common/common.h	31;"	d
@@ -59,23 +60,25 @@ OFFSET	common/common.h	28;"	d
 OFFSET	include/MyAlgo.h	27;"	d
 P	rbtree/rbtree.c	14;"	d	file:
 P	test/prre.c	53;"	d	file:
+RBT_DATA	rbtree/rbtree.c	16;"	d	file:
 RIGHT	heap/heap.c	4;"	d	file:
 RIGHT	rbtree/rbtree.c	13;"	d	file:
 RIGHT	test/prre.c	52;"	d	file:
-RIGHT_ROTATE	rbtree/rbtree.c	146;"	d	file:
-RIGHT_UNCLE	rbtree/rbtree.c	17;"	d	file:
+RIGHT_ROTATE	rbtree/rbtree.c	156;"	d	file:
+RIGHT_UNCLE	rbtree/rbtree.c	18;"	d	file:
 RIGHT_UNCLE	test/prre.c	56;"	d	file:
-SET_VAL	rbtree/rbtree.c	37;"	d	file:
+SET_VAL	rbtree/rbtree.c	38;"	d	file:
 SET_VAL	test/prre.c	75;"	d	file:
-SET_VAL_WITH_TYPE	rbtree/rbtree.c	36;"	d	file:
+SET_VAL_WITH_TYPE	rbtree/rbtree.c	37;"	d	file:
 SET_VAL_WITH_TYPE	test/prre.c	74;"	d	file:
+SIBLING	rbtree/rbtree.c	23;"	d	file:
 TOP	Makefile	/^TOP = .$/;"	m
 TRUE	common/common.h	24;"	d
 TRUE	include/MyAlgo.h	23;"	d
 TRUE	test/prre.c	5;"	d	file:
 U	test/prre.c	55;"	d	file:
-UNCLE	rbtree/rbtree.c	16;"	d	file:
-VAL	rbtree/rbtree.c	29;"	d	file:
+UNCLE	rbtree/rbtree.c	17;"	d	file:
+VAL	rbtree/rbtree.c	30;"	d	file:
 VAL	test/prre.c	67;"	d	file:
 VAL_DOUBLE	rbtree/rbtree.c	5;"	d	file:
 VAL_DOUBLE	test/prre.c	47;"	d	file:
@@ -547,7 +550,7 @@ d_val	test/prre.c	/^        double d_val;$/;"	m	union:_val	file:
 daddr_t	link/pl.c	/^typedef __daddr_t daddr_t;$/;"	t	file:
 daddr_t	stack/pre.c	/^typedef __daddr_t daddr_t;$/;"	t	file:
 dequeue	queue/queue.h	63;"	d
-dequeue_new	queue/queue.h	71;"	d
+dequeue_v2	queue/queue.h	72;"	d
 dev_t	link/pl.c	/^typedef __dev_t dev_t;$/;"	t	file:
 dev_t	stack/pre.c	/^typedef __dev_t dev_t;$/;"	t	file:
 div_t	link/pl.c	/^  } div_t;$/;"	t	typeref:struct:__anon34	file:
@@ -700,10 +703,10 @@ fsid_t	stack/pre.c	/^typedef __fsid_t fsid_t;$/;"	t	file:
 get_new_link	link/link.h	2;"	d
 get_new_link_node	link/link.h	13;"	d
 get_queue	queue/queue.h	17;"	d
-get_queue_new	queue/queue.h	28;"	d
-get_rbtree_node	rbtree/rbtree.c	48;"	d	file:
+get_queue_v2	queue/queue.h	28;"	d
+get_rbtree_node	rbtree/rbtree.c	49;"	d	file:
 get_rbtree_node	test/prre.c	86;"	d	file:
-get_rbtree_node_with_name	rbtree/rbtree.c	66;"	d	file:
+get_rbtree_node_with_name	rbtree/rbtree.c	69;"	d	file:
 get_stack	stack/stack.h	30;"	d
 gid_t	link/pl.c	/^typedef __gid_t gid_t;$/;"	t	file:
 gid_t	stack/pre.c	/^typedef __gid_t gid_t;$/;"	t	file:
@@ -773,10 +776,13 @@ main	test/prre.c	/^int main()$/;"	f
 main	test/ptr.c	/^int main()$/;"	f
 main	test/test.c	/^int main()$/;"	f
 main	test/tl.c	/^int main()$/;"	f
+main	test/tt.c	/^int main()$/;"	f
 max_heapify	heap/heap.c	/^void max_heapify(void *array, int i, int32_t nelem, size_t elem_size, int32_t offset, int i_type)$/;"	f
 mode_t	link/pl.c	/^typedef __mode_t mode_t;$/;"	t	file:
 mode_t	stack/pre.c	/^typedef __mode_t mode_t;$/;"	t	file:
 n	test/tl.c	/^        struct link_list *n;$/;"	m	struct:plink	typeref:struct:plink::link_list	file:
+name2str	queue/queue.h	71;"	d
+name2str	test/tt.c	2;"	d	file:
 next	link/link.h	/^        struct link_list *next;$/;"	m	struct:link	typeref:struct:link::link_list
 next	link/pl.c	/^        struct link_list *next;$/;"	m	struct:link	typeref:struct:link::link_list	file:
 nlink_t	link/pl.c	/^typedef __nlink_t nlink_t;$/;"	t	file:
@@ -833,6 +839,7 @@ quad_t	link/pl.c	/^typedef __quad_t quad_t;$/;"	t	file:
 quad_t	stack/pre.c	/^typedef __quad_t quad_t;$/;"	t	file:
 queue_size	queue/queue.h	/^        int queue_size;$/;"	m	struct:_queue
 queue_test	queue/queue.c	/^void queue_test()$/;"	f
+queue_test_v2	queue/queue.c	/^void queue_test_v2()$/;"	f
 quot	link/pl.c	/^    int quot;$/;"	m	struct:__anon34	file:
 quot	link/pl.c	/^    long int quot;$/;"	m	struct:__anon35	file:
 quot	link/pl.c	/^    long long int quot;$/;"	m	struct:__anon36	file:
@@ -849,7 +856,12 @@ random_data	link/pl.c	/^struct random_data$/;"	s	file:
 random_data	stack/pre.c	/^struct random_data$/;"	s	file:
 rbt_insert	rbtree/rbtree.c	/^void rbt_insert(struct _rbtree **root, struct _rbtree *node)$/;"	f
 rbt_insert_fixup	rbtree/rbtree.c	/^void rbt_insert_fixup(struct _rbtree **root,struct _rbtree *node)$/;"	f
+rbtree_delete_fixup	rbtree/rbtree.c	/^void rbtree_delete_fixup(struct _rbtree **root, struct _rbtree *node)$/;"	f
+rbtree_delete_node	rbtree/rbtree.c	/^void rbtree_delete_node(struct _rbtree **root, struct _rbtree *node)$/;"	f
+rbtree_delete_node_with_data	rbtree/rbtree.c	/^void rbtree_delete_node_with_data(struct _rbtree **root,void *data_ptr)$/;"	f
+rbtree_delete_node_with_val	rbtree/rbtree.c	220;"	d	file:
 rbtree_test	rbtree/rbtree.c	/^void rbtree_test()$/;"	f
+rbtree_walk	rbtree/rbtree.c	/^void rbtree_walk(struct _rbtree *node,int i)$/;"	f
 register_t	link/pl.c	/^typedef int register_t __attribute__ ((__mode__ (__word__)));$/;"	t	file:
 register_t	stack/pre.c	/^typedef int register_t __attribute__ ((__mode__ (__word__)));$/;"	t	file:
 rem	link/pl.c	/^    int rem;$/;"	m	struct:__anon34	file:
@@ -894,6 +906,7 @@ timeval	link/pl.c	/^struct timeval$/;"	s	file:
 timeval	stack/pre.c	/^struct timeval$/;"	s	file:
 top	stack/pre.c	/^        void *top;$/;"	m	struct:_stack	file:
 top	stack/stack.h	/^        void *top;$/;"	m	struct:_stack
+tree_successor	rbtree/rbtree.c	/^struct _rbtree *tree_successor(struct _rbtree *node)$/;"	f
 tv_nsec	link/pl.c	/^    long int tv_nsec;$/;"	m	struct:timespec	file:
 tv_nsec	stack/pre.c	/^    long int tv_nsec;$/;"	m	struct:timespec	file:
 tv_sec	link/pl.c	/^    __time_t tv_sec;$/;"	m	struct:timespec	file:

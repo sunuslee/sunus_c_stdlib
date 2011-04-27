@@ -30,4 +30,8 @@ struct _rbtree
 
 void rbt_insert(struct _rbtree **root, struct _rbtree *node);
 void rbt_insert_fixup(struct _rbtree **root, struct _rbtree *node);
+void rbtree_delete_node(struct _rbtree **root, struct _rbtree *node);
+void rbtree_delete_node_with_data(struct _rbtree **root, void *data_ptr);
+void rbtree_delete_fixup(struct _rbtree **root, struct _rbtree *node);
+void rbtree_walk(struct _rbtree *node,int i);
 void rbtree_test();

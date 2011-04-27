@@ -13,13 +13,14 @@
 #define RIGHT(rbt)              ((struct _rbtree *)rbt)->attr.right
 #define P(rbt)                  ((struct _rbtree *)rbt)->attr.parent
 #define FREE_ADDR(rbt)          ((struct _rbtree *)rbt)->attr.free_addr
-#define UNCLE(rbt) (LEFT(P(P(rbt))) == P(rbt) ? (RIGHT(P(P(rbt)))) : (LEFT(P(P(rbt)))))
-#define RIGHT_UNCLE(rbt) (RIGHT(P(P(rbt))))
-#define LEFT_UNCLE(rbt)  (LEFT(P(P(rbt))))
-#define IS_UNCLE_LEFT(rbt) (LEFT(P(P(rbt))) == P(rbt) ? FALSE : TRUE)
-#define IS_PARENT_LEFT(rbt) (LEFT(P(P(rbt))) == P(rbt) ? TRUE : FALSE)
-#define IS_NODE_LEFT(rbt) (LEFT(P(rbt)) == rbt ? TRUE : FALSE)
-
+#define RBT_DATA(rbt)           (((struct _rbtree *)rbt)->pdata)
+#define UNCLE(rbt)              (LEFT(P(P(rbt))) == P(rbt) ? (RIGHT(P(P(rbt)))) : (LEFT(P(P(rbt)))))
+#define RIGHT_UNCLE(rbt)        (RIGHT(P(P(rbt))))
+#define LEFT_UNCLE(rbt)         (LEFT(P(P(rbt))))
+#define IS_UNCLE_LEFT(rbt)      (LEFT(P(P(rbt))) == P(rbt) ? FALSE : TRUE)
+#define IS_PARENT_LEFT(rbt)     (LEFT(P(P(rbt))) == P(rbt) ? TRUE : FALSE)
+#define IS_NODE_LEFT(rbt)       (LEFT(P(rbt)) == rbt ? TRUE : FALSE)
+#define SIBLING(rbt)            ((IS_NODE_LEFT(rbt)) ? RIGHT(P(rbt)) : LEFT(P(rbt)))
 
 #define CMPTYPE(rbt)            ((struct _rbtree *)rbt)->cmp.type
 #define CMP(a,op,c,type)        ((((struct _rbtree *)a)->cmp.val.type op ((struct _rbtree *)c)->cmp.val.type) ? 1 : 0)
@@ -83,7 +84,18 @@ static struct _rbtree NIL = {.attr = {NULL, NULL, NULL, 'B',NULL}, .pdata = NULL
         FREE_ADDR(name) = name;                                                         \
         name;                                                                           \
 })
-
+/*if data == TRUE,it will free pdata as well*/
+/* if FREE_ADDR(node) == FALSE,then that node is NIL and can not be freed!*/
+#define  DELETE_NODE(node , data)               \
+do                                              \
+{                                               \
+        if(FREE_ADDR(node) != NULL)             \
+        {                                       \
+                if(data == TRUE)                \
+                        free(RBT_DATA(node));   \
+                free((void *)FREE_ADDR(node));  \
+        }                                       \
+}while(0)
 void rbt_insert(struct _rbtree **root, struct _rbtree *node)
 {
         struct _rbtree *cur_node = *root;
@@ -120,6 +132,7 @@ void rbt_insert(struct _rbtree **root, struct _rbtree *node)
         }
 FOUND:
         COLOR(node) = 'R';
+        rbtree_walk(*root, 0);
         rbt_insert_fixup(root,node);
 }
 /********************************************************************************************************/
@@ -130,33 +143,49 @@ FOUND:
 /*        / \                                                                                / \        */
 /*       b   c                                                                              a   b       */
 /********************************************************************************************************/
-#define LEFT_ROTATE(x, y)         \
+/* 
+ * Pay special attention to this cases : if the new y , or new x is new "ROOT",we must manual change the val
+ * of root,that why we added the 3rd parameter,root
+ */
+#define LEFT_ROTATE(x, y, root)   \
 do                                \
 {                                 \
         typeof(x) _x = x;         \
         typeof(y) _y = y;         \
+        if(P(_x) != &NIL)         \
+        {                         \
         if(LEFT(P(_x)) == _x)     \
                 LEFT(P(_x)) = _y; \
         else                      \
                 RIGHT(P(_x)) = _y;\
+        }                         \
+        else                      \
+                root = _y;        \
+        P(LEFT(_y)) = _x;         \
         RIGHT(_x) = LEFT(_y);     \
         P(_y) = P(_x);            \
-        P(_x) = _y;               \
         LEFT(_y) = _x;            \
+        P(_x) = _y;               \
 }while(0)
 
-#define RIGHT_ROTATE(y, x)        \
+#define RIGHT_ROTATE(y, x, root)  \
 do                                \
 {       typeof(x) _x = x;         \
         typeof(y) _y = y;         \
+        if(P(_y) != &NIL)         \
+        {                         \
         if(LEFT(P(_y)) == _y)     \
                 LEFT(P(_y)) = _x; \
         else                      \
                 RIGHT(P(_y)) = _x;\
+        }                         \
+        else                      \
+                root = _x;        \
+        P(RIGHT(_x)) = _y;        \
         LEFT(_y) = RIGHT(_x);     \
-        P(_x) = P(y);             \
-        P(_y) = _x;               \
+        P(_x) = P(_y);            \
         RIGHT(_x) = _y;           \
+        P(_y) = _x;               \
 }while(0)                       
 
 void rbt_insert_fixup(struct _rbtree **root,struct _rbtree *node)
@@ -180,25 +209,25 @@ void rbt_insert_fixup(struct _rbtree **root,struct _rbtree *node)
                 }
                else if(IS_PARENT_LEFT(n) && (!IS_NODE_LEFT(n))) /* 2 cases that 'parent of n' in the *LEFT* of 'GRANDparent of n'*/
                {
-                       LEFT_ROTATE(P(n), n);
+                       LEFT_ROTATE(P(n), n, *root);
                        n = LEFT(n);
                }
                else if(IS_PARENT_LEFT(n) && IS_NODE_LEFT(n))
                {
                        COLOR(P(n)) = 'B';
                        COLOR(P(P(n))) = 'R';
-                       RIGHT_ROTATE(P(P(n)), P(n));
+                       RIGHT_ROTATE(P(P(n)), P(n), *root);
                }
                else if((!IS_PARENT_LEFT(n)) && IS_NODE_LEFT(n))/* 2 cases that 'parent of n' in the *RIGHT* of 'GRANDparent of n'*/
                {
-                       RIGHT_ROTATE(P(n), n);
+                       RIGHT_ROTATE(P(n), n, *root);
                        n = RIGHT(n);
                }
                else if((!IS_PARENT_LEFT(n)) && (!IS_NODE_LEFT(n)))
                {
                        COLOR(P(n)) = 'B';
                        COLOR(P(P(n))) = 'R';
-                       LEFT_ROTATE(P(P(n)), P(n));
+                       LEFT_ROTATE(P(P(n)), P(n), *root);
                }
                else
                {
@@ -209,9 +238,167 @@ void rbt_insert_fixup(struct _rbtree **root,struct _rbtree *node)
                 n = P(n);
         *root = n;
 }
+#define rbtree_delete_node_with_val(root, val)                          \
+do                                                                      \
+{                                                                       \
+        struct _rbtree *search = root;                                  \
+        while((VAL(search) != val) && (search != &NIL))                 \
+        {                                                               \
+                printf("cmp %g with %d\n",VAL(search),val);             \
+                if(VAL(search) > (double)val)                           \
+                        search = LEFT(search);                          \
+                else if(VAL(search) < (double)val)                      \
+                        search = RIGHT(search);                         \
+                else                                                    \
+                {                                                       \
+                        break;                                          \
+                }                                                       \
+        }                                                               \
+        if(search != &NIL)                                              \
+                rbtree_delete_node(&root, search);                      \
+        else                                                            \
+                printf("Node with val = %g NOT FOUND!\n",val);          \
+}while(0) 
+struct _rbtree *tree_successor(struct _rbtree *node)
+{
+        struct _rbtree *p = RIGHT(node);
+        if(node == &NIL) 
+                printf("&NIL DON't HAVE SUCCESSOR NODE!");
+        if(p != &NIL)
+        {
+                while(LEFT(p) != &NIL)
+                        p = LEFT(p);
+                return p;
+        }
+        else    /* if node doesn't have a right-child*/
+        {
+                p = node;
+                while((p != &NIL) && !(IS_NODE_LEFT(p)))
+                        p = P(p);
+                return P(p);
+        }
+        return NULL;
+}
+void rbtree_delete_node_with_data(struct _rbtree **root,void *data_ptr)
+{
+        printf("i will do it late when i find some better ideas:D");
+}
+void rbtree_delete_node(struct _rbtree **root, struct _rbtree *node)
+{
+        struct _rbtree *delete;
+        struct _rbtree *connector ;
+        printf("Now deleting the node with value %g root = %g\n",VAL(node),VAL(*root));
+        if((LEFT(node) == &NIL) || (RIGHT(node) == &NIL))
+                delete = node;
+        else
+                delete = tree_successor(node);
+        
+        if(LEFT(delete) != &NIL)
+                connector = LEFT(delete);
+        else
+                connector = RIGHT(delete);
+
+        P(connector) = P(delete);
+
+        if(P(delete) == &NIL)
+        {
+                *root = connector;
+        }
+        else
+        {
+                if(IS_NODE_LEFT(delete))
+                        LEFT(P(delete)) = connector;
+                else
+                        RIGHT(P(delete)) = connector;
+        }
+        
+        if(delete != node)
+        {
+                node->cmp = delete->cmp;
+                node->pdata = delete->pdata;
+        }
+        DELETE_NODE(delete,FALSE);
+        if(COLOR(delete) == 'B')
+                rbtree_delete_fixup(root, connector);
+        return ;
+}
+
+void rbtree_delete_fixup(struct _rbtree **root, struct _rbtree *node)
+{
+        struct _rbtree *n = node;
+        struct _rbtree *s;
+        if(P(node) == &NIL)
+                return ;
+        while(COLOR(n) != 'R')
+        {
+                s = SIBLING(n);
+                if(s == &NIL)
+                        break;
+                if(COLOR(s) == 'R')
+                {
+                        COLOR(s) = 'B';
+                        COLOR(P(s)) = 'R';
+                        if(IS_NODE_LEFT(n) == TRUE)
+                                LEFT_ROTATE(P(s), s, *root);
+                        else
+                                RIGHT_ROTATE(P(s), s, *root);
+                }
+                else if((COLOR(s) == 'B') && (COLOR(LEFT(s)) == 'B') && (COLOR(RIGHT(s)) == 'B'))
+                {
+                        COLOR(s) = 'R';
+                        n = P(n);
+                }
+                else if((COLOR(s) == 'B') && (IS_NODE_LEFT(s)))
+                {
+                        if(COLOR(RIGHT(s)) == 'R' && (COLOR(LEFT(s)) == 'B'))
+                        {
+                                COLOR(LEFT(s)) = 'B';
+                                COLOR(s) = 'R';
+                                LEFT_ROTATE(s, RIGHT(s), *root);
+                        }
+                        if(COLOR(LEFT(s)) == 'R')
+                        {
+                                COLOR(s) = COLOR(P(s));
+                                COLOR(P(s)) = 'B';
+                                COLOR(LEFT(s)) = 'B';
+                                RIGHT_ROTATE(P(s), s, *root);
+                        }
+                }
+                else if((COLOR(s) == 'B') && (!IS_NODE_LEFT(s)))
+                {
+                        if((COLOR(LEFT(s)) == 'R') && (COLOR(RIGHT(s)) == 'B'))
+                        {
+                                COLOR(LEFT(s)) = 'B';
+                                COLOR(s) = 'R';
+                                RIGHT_ROTATE(s, LEFT(s), *root);
+                        }
+                        if(COLOR(RIGHT(s)) == 'R')
+                        {
+                                COLOR(s) = COLOR(P(s));
+                                COLOR(P(s)) = 'B';
+                                COLOR(RIGHT(s)) = 'B';
+                                LEFT_ROTATE(P(s),s, *root);
+                        }
+                }
+                else
+                        printf("case UNKNOW! COLOR n = %c , COLOR s = %c\n\n",COLOR(n),COLOR(SIBLING(n)));
+        }
+}
+void rbtree_walk(struct _rbtree *node,int i)
+{
+        if(node != &NIL)
+        {
+                printf("I am node %d, Val = %g(%c) , Parent = %g(%c) , Left = %g(%c) , Right = %g(%c)\n",
+                i,VAL(node),COLOR(node),VAL(P(node)),COLOR(P(node)),VAL(LEFT(node)),COLOR(LEFT(node)),VAL(RIGHT(node)),COLOR(RIGHT(node)));
+        if(LEFT(node) != &NIL)
+                rbtree_walk(LEFT(node), i + 1);
+        if(RIGHT(node) != &NIL)
+                rbtree_walk(RIGHT(node), i + 1);
+        }
+}
 void rbtree_test()
 {
-        int datas[] = {12,1,9,2,0,11,7,19,4,15,18,5,14,14,13,10,6,3,8,17};
+        int datas[] = {12,1,9,2,0,11,7,19,4,15,18,5,14,13,10,16,6,3,8,17}; 
         int i = 0;
         struct _rbtree *rooot;
         struct _rbtree *rbt_new;
@@ -225,10 +412,6 @@ void rbtree_test()
                 if(i == 0)
                         rooot = rbt_new;
                 rbt_insert(&rooot, rbt_new);
-                printf("new node(%c)%08x , Val = %g inserted , Par(%c) = %08x , Val = %g , root(%c) = %08x , Val = %g\n\n\n",
-                        COLOR(rbt_new),(uint32_t)rbt_new, VAL(rbt_new), 
-                        (COLOR(P(rbt_new))),(uint32_t)(P(rbt_new)),VAL(P(rbt_new)),
-                        COLOR(rooot),(uint32_t)rooot,VAL(rooot));
         }
         printf("check begin!!\n\n");
 //*        check_list[0] = rooot;
@@ -248,7 +431,7 @@ void rbtree_test()
 //*                        }
 //*                        head++;
 //*                } THIS queueE ABOVE IS LAME!
-        get_queue_v2(check_list, 10, struct _rbtree *);
+        get_queue_v2(check_list, 20, struct _rbtree *);
         pc = rooot;
         enqueue(check_list, &pc);
         for( i = 0; i < 20; i++)
@@ -264,5 +447,10 @@ void rbtree_test()
                 {
                         enqueue(check_list, &(RIGHT(pc)));
                 }
+        }
+        for( i = 0 ; i < 20 ; i++)
+        {
+                rbtree_delete_node_with_val(rooot, datas[i]);
+                rbtree_walk(rooot, 0);
         }
 }
