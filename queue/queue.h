@@ -9,10 +9,19 @@ struct _queue
         int queue_size;
         int available_slot;
         struct _queue *free_addr; // Points to the struct itself;
+        void *free_queue;
 };
 
 int _get_queue(struct _queue *queue_name, int elem_nr, int elem_size);
 void queue_test();
+#define IS_QUEUE_EMPTY(queue_name)                                                              \
+(queue_name->available_slot == (queue_name->queue_size / queue_name->elem_size) ? TRUE : FALSE)
+#define DESTORY_QUEUE(queue_name)               \
+do                                              \
+{                                               \
+        free((void *)(queue_name->free_queue)); \
+        free((void *)(queue_name->free_addr));  \
+}while(0)
 
 #define get_queue(queue_name, elem_nr, elem_size)                       \
 struct _queue *queue_name;                                              \

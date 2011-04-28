@@ -44,7 +44,6 @@ do                                                                              
                 ((struct _rbtree *)rbt)->cmp.val.d_val = (Val);                         \
 }while(0)
 
-
 static struct _rbtree NIL = {.attr = {NULL, NULL, NULL, 'B',NULL}, .pdata = NULL}; // *NEVER* free(NIL)!!
 #define get_rbtree_node(cmptype, _Val, data_addr)                                       \
 ({                                                                                      \
@@ -281,7 +280,36 @@ struct _rbtree *tree_successor(struct _rbtree *node)
 }
 void rbtree_delete_node_with_data(struct _rbtree **root,void *data_ptr)
 {
-        printf("i will do it late when i find some better ideas:D");
+        struct _rbtree *search;
+        get_queue_v2(node_queue, 20, struct _rbtree *);
+        search = *root;
+        enqueue(node_queue, &search);
+        while(1)
+        {
+                if(IS_QUEUE_EMPTY(node_queue))
+                        break;
+                search = dequeue_v2(node_queue);
+
+                if((uint32_t)data_ptr == (uint32_t)(RBT_DATA(search)))
+                {
+                        break;
+                }
+                if(LEFT(search) != &NIL)
+                {
+                        enqueue(node_queue, &(LEFT(search)));
+                }
+                if(RIGHT(search) != &NIL)
+                {
+                        enqueue(node_queue, &(RIGHT(search)));
+                }
+        }
+        DESTORY_QUEUE(node_queue);
+        if(search != NULL)
+        {
+                printf("FOUND THE NODE WITH DATA %08x, VAL = %g , LEFT = %g , RIGHT = %g\n",
+                        (uint32_t)(RBT_DATA(search)), VAL(search), VAL(LEFT(search)), VAL(RIGHT(search)));
+                rbtree_delete_node(root, search);
+        }
 }
 void rbtree_delete_node(struct _rbtree **root, struct _rbtree *node)
 {
@@ -400,6 +428,7 @@ void rbtree_test()
 {
         int datas[] = {12,1,9,2,0,11,7,19,4,15,18,5,14,13,10,16,6,3,8,17}; 
         int i = 0;
+        char *p = "hello 11";
         struct _rbtree *rooot;
         struct _rbtree *rbt_new;
         struct _rbtree *pc;
@@ -407,10 +436,18 @@ void rbtree_test()
         head = tail = 0;
         for( i = 0; i < 20; i++)
         {
-                rbt_new = get_rbtree_node(CMP_INT,datas[i],NULL);
-                printf("get new node %08x, Val = %g\n",(uint32_t)rbt_new,VAL(rbt_new));
+                if(i == 4)
+                        rbt_new = get_rbtree_node(CMP_INT,datas[i],0xdeadbeaf);
+                else if(i == 11)
+                        rbt_new = get_rbtree_node(CMP_INT,datas[i],0x11111111);
+                else if(i == 2)
+                        rbt_new = get_rbtree_node(CMP_INT,datas[i],0x22222222);
+                else
+                        rbt_new = get_rbtree_node(CMP_INT,datas[i],NULL);
+                printf("get new node %08x, Val = %g with data %08x\n",(uint32_t)rbt_new,VAL(rbt_new),(uint32_t)(RBT_DATA(rbt_new)));
                 if(i == 0)
                         rooot = rbt_new;
+
                 rbt_insert(&rooot, rbt_new);
         }
         printf("check begin!!\n\n");
@@ -448,6 +485,9 @@ void rbtree_test()
                         enqueue(check_list, &(RIGHT(pc)));
                 }
         }
+        rbtree_delete_node_with_data(&rooot, (void *)(0x11111111));
+        rbtree_delete_node_with_data(&rooot, (void *)(0x22222222));
+        rbtree_delete_node_with_data(&rooot, (void *)(0xdeadbeaf));
         for( i = 0 ; i < 20 ; i++)
         {
                 rbtree_delete_node_with_val(rooot, datas[i]);
