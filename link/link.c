@@ -1,7 +1,7 @@
 #include "link.h"
 void link_test()
 {
-        struct link_list *phead;
+        struct link_list *phead = NULL;
         struct link_list *newnode;
         struct link_list *pcheck,*pcheck2;
         char data[][32] = 
@@ -19,21 +19,21 @@ void link_test()
         };
         char *head = "I AM THE HEAD!\n";
         int i;
-        get_new_link(phead, head);
+        link_list_new_node(phead, head, flag_link_new_with_data);
         for (i = 0 ; i < 10 ; i++)
         {
-                get_new_link_node(newnode, data[i]);
-                link_head_insert(phead, newnode);
-                printf("head %s : head NEXT : %s",(char *)phead->pdata,(char *)(link_list_next(phead)->pdata));
+                link_list_new_node(newnode, data[i], flag_link_new_with_data);
+                link_list_insert_head(phead, newnode);
+                printf("head %s : head NEXT : %s",(char *)phead->pdata,(char *)(link_list_get_next(phead)->pdata));
         }
-        link_delete_head(phead);
-        link_delete_tail(phead);
+        link_list_delete_head(phead, 0);
+        link_list_delete_tail(phead, 0);
         printf("CHECK 1:\n\n");
         for(i = 0 ,pcheck = phead; i < 9 ; i++)
         {
                 printf("Node data : %s",(char *)pcheck->pdata);
                 pcheck2 = pcheck;
-                pcheck = link_list_next(pcheck);
+                pcheck = link_list_get_next(pcheck);
                 if(pcheck == NULL)
                         printf("LINE 95 : pcheck == NUll!\n");
         }
@@ -41,7 +41,7 @@ void link_test()
         for(i = 0 ; i < 9 ; i++)
         {
                 printf("Node data : %s",(char *)pcheck2->pdata);
-                pcheck2 = link_list_prev(pcheck2);
+                pcheck2 = link_list_get_prev(pcheck2);
                 if(pcheck2 == NULL)
                         printf("LINE 104 : pcheck == NUll!\n");
         }

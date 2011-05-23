@@ -1,6 +1,6 @@
 
 /**************************************************************************************************************************/
-/*      This is my project to prepare my intership exams                                                                  */
+/*      This is my project to prepare my internship exams                                                                 */
 /*      Feature:                                                                                                          */
 /*                                                                                                                        */
 /*                                                                                                                        */
@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 typedef signed char int8_t;
 typedef unsigned char uint8_t;
 typedef short int16_t;
@@ -19,7 +20,7 @@ typedef unsigned int uint32_t;
 typedef long long int64_t;
 typedef unsigned long long uint64_t;
 typedef int bool;
-typedef int stack_t;
+typedef uint32_t flag_t; 
 #define FALSE 0
 #define  TRUE !FALSE
 // Macros
@@ -49,18 +50,14 @@ typedef int stack_t;
 do                                              \
 {                                               \
         ptr = (type *)malloc(size);             \
-        if(!ptr)                                \
-                printf("In malloc"              \
-                        "Out Of Memory\n");     \
+        assert(ptr);                            \
 }while(0)                                       
 
 #define CALLOC_S(type, ptr, nelem, elem_size)   \
 do                                              \
 {                                               \
         ptr = (type *)calloc(nelem,elem_size);  \
-        if(!ptr)                                \
-                printf("In calloc"              \
-                        "Out Of Memory\n");     \
+        assert(ptr);                            \
 }while(0)                                       
 
 

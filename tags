@@ -4,85 +4,87 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-CALLOC_S	common/common.h	57;"	d
+CALLOC_S	common/common.h	56;"	d
 CALLOC_S	test/prre.c	8;"	d	file:
 CFLAGS	Makefile	/^CFLAGS := -Wall -std=gnu99 -g -I$(TOP)$/;"	m
-CMP	rbtree/rbtree.c	26;"	d	file:
+CMP	rbtree/rbtree.h	52;"	d
 CMP	test/prre.c	63;"	d	file:
-CMPTYPE	rbtree/rbtree.c	25;"	d	file:
+CMPTYPE	rbtree/rbtree.h	51;"	d
 CMPTYPE	test/prre.c	62;"	d	file:
-CMP_DOUBLE	rbtree/rbtree.c	9;"	d	file:
+CMP_DOUBLE	rbtree/rbtree.h	35;"	d
 CMP_DOUBLE	test/prre.c	7;"	d	file:
-CMP_INT	rbtree/rbtree.c	8;"	d	file:
+CMP_INT	rbtree/rbtree.h	34;"	d
 CMP_INT	test/prre.c	6;"	d	file:
-COLOR	rbtree/rbtree.c	11;"	d	file:
+COLOR	rbtree/rbtree.h	37;"	d
 COLOR	test/prre.c	50;"	d	file:
 COMMON_H	common/common.h	9;"	d
-DEBUG	common/common.h	67;"	d
+DEBUG	common/common.h	64;"	d
 DEBUG	test/debug.c	4;"	d	file:
-DEBUG_ARGS	common/common.h	84;"	d
+DEBUG_ARGS	common/common.h	81;"	d
 DEBUG_ARGS	test/debug.c	16;"	d	file:
-DELETE_NODE	rbtree/rbtree.c	88;"	d	file:
-FALSE	common/common.h	23;"	d
+DELETE_NODE	rbtree/rbtree.h	113;"	d
+DESTORY_QUEUE	queue/queue.h	19;"	d
+FALSE	common/common.h	24;"	d
 FALSE	include/MyAlgo.h	22;"	d
 FALSE	test/prre.c	4;"	d	file:
 FILE	link/pl.c	/^typedef struct _IO_FILE FILE;$/;"	t	typeref:struct:_IO_FILE	file:
 FILE	stack/pre.c	/^typedef struct _IO_FILE FILE;$/;"	t	typeref:struct:_IO_FILE	file:
-FREE_ADDR	rbtree/rbtree.c	15;"	d	file:
+FREE_ADDR	rbtree/rbtree.h	41;"	d
 FREE_ADDR	test/prre.c	54;"	d	file:
-GET_VAL	rbtree/rbtree.c	34;"	d	file:
+GET_VAL	rbtree/rbtree.h	60;"	d
 GET_VAL	test/prre.c	71;"	d	file:
-IS_NODE_LEFT	rbtree/rbtree.c	22;"	d	file:
+IS_NODE_LEFT	rbtree/rbtree.h	48;"	d
 IS_NODE_LEFT	test/prre.c	60;"	d	file:
-IS_PARENT_LEFT	rbtree/rbtree.c	21;"	d	file:
+IS_PARENT_LEFT	rbtree/rbtree.h	47;"	d
 IS_PARENT_LEFT	test/prre.c	59;"	d	file:
-IS_UNCLE_LEFT	rbtree/rbtree.c	20;"	d	file:
+IS_QUEUE_EMPTY	queue/queue.h	17;"	d
+IS_UNCLE_LEFT	rbtree/rbtree.h	46;"	d
 IS_UNCLE_LEFT	test/prre.c	58;"	d	file:
 LEFT	heap/heap.c	3;"	d	file:
-LEFT	rbtree/rbtree.c	12;"	d	file:
+LEFT	rbtree/rbtree.h	38;"	d
 LEFT	test/prre.c	51;"	d	file:
-LEFT_ROTATE	rbtree/rbtree.c	141;"	d	file:
+LEFT_ROTATE	rbtree/rbtree.h	136;"	d
 LEFT_ROTATE	test/prre.c	104;"	d	file:
-LEFT_UNCLE	rbtree/rbtree.c	19;"	d	file:
+LEFT_UNCLE	rbtree/rbtree.h	45;"	d
 LEFT_UNCLE	test/prre.c	57;"	d	file:
-MALLOC_S	common/common.h	48;"	d
-MAX	common/common.h	31;"	d
+MALLOC_S	common/common.h	49;"	d
+MAX	common/common.h	32;"	d
 MAX	include/MyAlgo.h	30;"	d
 MAX	test/p.c	2;"	d	file:
 MAX	test/p.c	4;"	d	file:
-MIN	common/common.h	38;"	d
+MIN	common/common.h	39;"	d
 MIN	include/MyAlgo.h	37;"	d
 MN	test/p.c	3;"	d	file:
 NIL	rbtree/rbtree.c	/^static struct _rbtree NIL = {.attr = {NULL, NULL, NULL, 'B',NULL}, .pdata = NULL}; \/\/ *NEVER* free(NIL)!!$/;"	v	typeref:struct:_rbtree	file:
 NIL	test/prre.c	/^static struct _rbtree NIL = {.attr = {NULL, NULL, NULL, 'B',NULL}, .pdata = NULL}; \/\/ *NEVER* free(NIL)!!$/;"	v	typeref:struct:_rbtree	file:
 NIL	test/test.c	/^static struct _rbtree NIL = {.attr = {NULL, NULL, NULL, 'U'}, .pdata = (void *)0x123456};$/;"	v	typeref:struct:_rbtree	file:
-OFFSET	common/common.h	28;"	d
+OFFSET	common/common.h	29;"	d
 OFFSET	include/MyAlgo.h	27;"	d
-P	rbtree/rbtree.c	14;"	d	file:
+P	rbtree/rbtree.h	40;"	d
 P	test/prre.c	53;"	d	file:
-RBT_DATA	rbtree/rbtree.c	16;"	d	file:
+RBT_DATA	rbtree/rbtree.h	42;"	d
 RIGHT	heap/heap.c	4;"	d	file:
-RIGHT	rbtree/rbtree.c	13;"	d	file:
+RIGHT	rbtree/rbtree.h	39;"	d
 RIGHT	test/prre.c	52;"	d	file:
-RIGHT_ROTATE	rbtree/rbtree.c	156;"	d	file:
-RIGHT_UNCLE	rbtree/rbtree.c	18;"	d	file:
+RIGHT_ROTATE	rbtree/rbtree.h	157;"	d
+RIGHT_UNCLE	rbtree/rbtree.h	44;"	d
 RIGHT_UNCLE	test/prre.c	56;"	d	file:
-SET_VAL	rbtree/rbtree.c	38;"	d	file:
+SET_VAL	rbtree/rbtree.h	64;"	d
 SET_VAL	test/prre.c	75;"	d	file:
-SET_VAL_WITH_TYPE	rbtree/rbtree.c	37;"	d	file:
+SET_VAL_WITH_TYPE	rbtree/rbtree.h	63;"	d
 SET_VAL_WITH_TYPE	test/prre.c	74;"	d	file:
-SIBLING	rbtree/rbtree.c	23;"	d	file:
+SIBLING	rbtree/rbtree.h	49;"	d
 TOP	Makefile	/^TOP = .$/;"	m
-TRUE	common/common.h	24;"	d
+TRUE	common/common.h	25;"	d
 TRUE	include/MyAlgo.h	23;"	d
 TRUE	test/prre.c	5;"	d	file:
 U	test/prre.c	55;"	d	file:
-UNCLE	rbtree/rbtree.c	17;"	d	file:
-VAL	rbtree/rbtree.c	30;"	d	file:
+UNCLE	rbtree/rbtree.h	43;"	d
+VAL	rbtree/rbtree.h	56;"	d
 VAL	test/prre.c	67;"	d	file:
-VAL_DOUBLE	rbtree/rbtree.c	5;"	d	file:
+VAL_DOUBLE	rbtree/rbtree.h	31;"	d
 VAL_DOUBLE	test/prre.c	47;"	d	file:
-VAL_INT	rbtree/rbtree.c	4;"	d	file:
+VAL_INT	rbtree/rbtree.h	30;"	d
 VAL_INT	test/prre.c	46;"	d	file:
 _G_fpos64_t	link/pl.c	/^} _G_fpos64_t;$/;"	t	typeref:struct:__anon30	file:
 _G_fpos64_t	stack/pre.c	/^} _G_fpos64_t;$/;"	t	typeref:struct:__anon5	file:
@@ -485,6 +487,7 @@ _flags2	stack/pre.c	/^  int _flags2;$/;"	m	struct:_IO_FILE	file:
 _get_queue	queue/queue.c	/^int _get_queue(struct _queue *queue_name, int elem_nr, int elem_size)$/;"	f
 _get_stack	stack/pre.c	/^int _get_stack(struct _stack *stack_name, int elem_nr, size_t elem_size)$/;"	f
 _get_stack	stack/stack.c	/^int _get_stack(struct _stack *stack_name, int elem_nr, size_t elem_size)$/;"	f
+_link_flags_t	link/link.h	/^typedef enum _link_flags_t$/;"	g
 _lock	link/pl.c	/^  _IO_lock_t *_lock;$/;"	m	struct:_IO_FILE	file:
 _lock	stack/pre.c	/^  _IO_lock_t *_lock;$/;"	m	struct:_IO_FILE	file:
 _markers	link/pl.c	/^  struct _IO_marker *_markers;$/;"	m	struct:_IO_FILE	typeref:struct:_IO_FILE::_IO_marker	file:
@@ -549,8 +552,8 @@ d_val	rbtree/rbtree.h	/^        double d_val;$/;"	m	union:_val
 d_val	test/prre.c	/^        double d_val;$/;"	m	union:_val	file:
 daddr_t	link/pl.c	/^typedef __daddr_t daddr_t;$/;"	t	file:
 daddr_t	stack/pre.c	/^typedef __daddr_t daddr_t;$/;"	t	file:
-dequeue	queue/queue.h	63;"	d
-dequeue_v2	queue/queue.h	72;"	d
+dequeue	queue/queue.h	72;"	d
+dequeue_v2	queue/queue.h	81;"	d
 dev_t	link/pl.c	/^typedef __dev_t dev_t;$/;"	t	file:
 dev_t	stack/pre.c	/^typedef __dev_t dev_t;$/;"	t	file:
 div_t	link/pl.c	/^  } div_t;$/;"	t	typeref:struct:__anon34	file:
@@ -562,7 +565,7 @@ elem_size	stack/pre.c	/^        int elem_size;$/;"	m	struct:_stack	file:
 elem_size	stack/stack.h	/^        int elem_size;$/;"	m	struct:_stack
 end_ptr	link/pl.c	/^    int32_t *end_ptr;$/;"	m	struct:random_data	file:
 end_ptr	stack/pre.c	/^    int32_t *end_ptr;$/;"	m	struct:random_data	file:
-enqueue	queue/queue.h	43;"	d
+enqueue	queue/queue.h	52;"	d
 enum	test/prre.asm	/^enum __codecvt_result$/;"	l
 extern	test/prre.asm	/^extern FILE *fdopen (int __fd, __const char *__modes) __attribute__ ((__nothrow__)) ;$/;"	l
 extern	test/prre.asm	/^extern FILE *fmemopen (void *__s, size_t __len, __const char *__modes)$/;"	l
@@ -683,6 +686,9 @@ fd_mask	link/pl.c	/^typedef __fd_mask fd_mask;$/;"	t	file:
 fd_mask	stack/pre.c	/^typedef __fd_mask fd_mask;$/;"	t	file:
 fd_set	link/pl.c	/^  } fd_set;$/;"	t	typeref:struct:__anon38	file:
 fd_set	stack/pre.c	/^  } fd_set;$/;"	t	typeref:struct:__anon13	file:
+flag_link_delete_with_data	link/link.h	/^        flag_link_delete_with_data = 1 << 1,$/;"	e	enum:_link_flags_t
+flag_link_new_with_data	link/link.h	/^        flag_link_new_with_data =    1 << 0,$/;"	e	enum:_link_flags_t
+flag_t	common/common.h	/^typedef uint32_t flag_t; $/;"	t
 fpos_t	link/pl.c	/^typedef _G_fpos_t fpos_t;$/;"	t	file:
 fpos_t	stack/pre.c	/^typedef _G_fpos_t fpos_t;$/;"	t	file:
 fptr	link/pl.c	/^    int32_t *fptr;$/;"	m	struct:random_data	file:
@@ -694,19 +700,18 @@ free_addr	rbtree/rbtree.h	/^        void *free_addr;$/;"	m	struct:_attr
 free_addr	stack/pre.c	/^        struct _stack *free_addr;$/;"	m	struct:_stack	typeref:struct:_stack::_stack	file:
 free_addr	stack/stack.h	/^        struct _stack *free_addr;$/;"	m	struct:_stack	typeref:struct:_stack::_stack
 free_addr	test/prre.c	/^        void *free_addr;$/;"	m	struct:_attr	file:
+free_queue	queue/queue.h	/^        void *free_queue;$/;"	m	struct:_queue
 fsblkcnt_t	link/pl.c	/^typedef __fsblkcnt_t fsblkcnt_t;$/;"	t	file:
 fsblkcnt_t	stack/pre.c	/^typedef __fsblkcnt_t fsblkcnt_t;$/;"	t	file:
 fsfilcnt_t	link/pl.c	/^typedef __fsfilcnt_t fsfilcnt_t;$/;"	t	file:
 fsfilcnt_t	stack/pre.c	/^typedef __fsfilcnt_t fsfilcnt_t;$/;"	t	file:
 fsid_t	link/pl.c	/^typedef __fsid_t fsid_t;$/;"	t	file:
 fsid_t	stack/pre.c	/^typedef __fsid_t fsid_t;$/;"	t	file:
-get_new_link	link/link.h	2;"	d
-get_new_link_node	link/link.h	13;"	d
-get_queue	queue/queue.h	17;"	d
-get_queue_v2	queue/queue.h	28;"	d
-get_rbtree_node	rbtree/rbtree.c	49;"	d	file:
+get_queue	queue/queue.h	26;"	d
+get_queue_v2	queue/queue.h	37;"	d
+get_rbtree_node	rbtree/rbtree.h	73;"	d
 get_rbtree_node	test/prre.c	86;"	d	file:
-get_rbtree_node_with_name	rbtree/rbtree.c	69;"	d	file:
+get_rbtree_node_with_name	rbtree/rbtree.h	93;"	d
 get_stack	stack/stack.h	30;"	d
 gid_t	link/pl.c	/^typedef __gid_t gid_t;$/;"	t	file:
 gid_t	stack/pre.c	/^typedef __gid_t gid_t;$/;"	t	file:
@@ -749,16 +754,20 @@ left	test/prre.c	/^        struct _rbtree *left;$/;"	m	struct:_attr	typeref:stru
 left	test/test.c	/^        struct _rbtree *left;$/;"	m	struct:_attr	typeref:struct:_attr::_rbtree	file:
 link	link/link.h	/^struct link{$/;"	s
 link	link/pl.c	/^struct link{$/;"	s	file:
-link_delete_head	link/link.h	42;"	d
-link_delete_tail	link/link.h	50;"	d
-link_head_insert	link/link.h	19;"	d
+link_flag	link/link.h	/^}link_flag;$/;"	t	typeref:enum:_link_flags_t
 link_list	link/link.h	/^struct link_list$/;"	s
 link_list	link/pl.c	/^struct link_list$/;"	s	file:
 link_list	test/tl.c	/^struct link_list$/;"	s	file:
-link_list_free_node	link/link.h	17;"	d
-link_list_next	link/link.h	16;"	d
-link_list_prev	link/link.h	15;"	d
-link_tail_insert	link/link.h	29;"	d
+link_list_delet_node	link/link.h	21;"	d
+link_list_delete_data	link/link.h	22;"	d
+link_list_delete_head	link/link.h	49;"	d
+link_list_delete_tail	link/link.h	59;"	d
+link_list_get_data	link/link.h	20;"	d
+link_list_get_next	link/link.h	19;"	d
+link_list_get_prev	link/link.h	18;"	d
+link_list_insert_head	link/link.h	24;"	d
+link_list_insert_tail	link/link.h	34;"	d
+link_list_new_node	link/link.h	7;"	d
 link_test	link/link.c	/^void link_test()$/;"	f
 lldiv_t	link/pl.c	/^  } lldiv_t;$/;"	t	typeref:struct:__anon36	file:
 lldiv_t	stack/pre.c	/^  } lldiv_t;$/;"	t	typeref:struct:__anon11	file:
@@ -781,7 +790,7 @@ max_heapify	heap/heap.c	/^void max_heapify(void *array, int i, int32_t nelem, si
 mode_t	link/pl.c	/^typedef __mode_t mode_t;$/;"	t	file:
 mode_t	stack/pre.c	/^typedef __mode_t mode_t;$/;"	t	file:
 n	test/tl.c	/^        struct link_list *n;$/;"	m	struct:plink	typeref:struct:plink::link_list	file:
-name2str	queue/queue.h	71;"	d
+name2str	queue/queue.h	80;"	d
 name2str	test/tt.c	2;"	d	file:
 next	link/link.h	/^        struct link_list *next;$/;"	m	struct:link	typeref:struct:link::link_list
 next	link/pl.c	/^        struct link_list *next;$/;"	m	struct:link	typeref:struct:link::link_list	file:
@@ -859,7 +868,7 @@ rbt_insert_fixup	rbtree/rbtree.c	/^void rbt_insert_fixup(struct _rbtree **root,s
 rbtree_delete_fixup	rbtree/rbtree.c	/^void rbtree_delete_fixup(struct _rbtree **root, struct _rbtree *node)$/;"	f
 rbtree_delete_node	rbtree/rbtree.c	/^void rbtree_delete_node(struct _rbtree **root, struct _rbtree *node)$/;"	f
 rbtree_delete_node_with_data	rbtree/rbtree.c	/^void rbtree_delete_node_with_data(struct _rbtree **root,void *data_ptr)$/;"	f
-rbtree_delete_node_with_val	rbtree/rbtree.c	220;"	d	file:
+rbtree_delete_node_with_val	rbtree/rbtree.h	177;"	d
 rbtree_test	rbtree/rbtree.c	/^void rbtree_test()$/;"	f
 rbtree_walk	rbtree/rbtree.c	/^void rbtree_walk(struct _rbtree *node,int i)$/;"	f
 register_t	link/pl.c	/^typedef int register_t __attribute__ ((__mode__ (__word__)));$/;"	t	file:
@@ -887,7 +896,6 @@ ssize_t	stack/pre.c	/^typedef __ssize_t ssize_t;$/;"	t	file:
 stack_destory	stack/stack.h	19;"	d
 stack_size	stack/pre.c	/^        int stack_size;$/;"	m	struct:_stack	file:
 stack_size	stack/stack.h	/^        int stack_size;$/;"	m	struct:_stack
-stack_t	common/common.h	/^typedef int stack_t;$/;"	t
 stack_t	include/MyAlgo.h	/^typedef int stack_t;$/;"	t
 stack_test	stack/stack.c	/^void stack_test()$/;"	f
 state	link/pl.c	/^    int32_t *state;$/;"	m	struct:random_data	file:
