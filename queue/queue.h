@@ -1,101 +1,91 @@
 #include "common/common.h"
-struct _queue
+typedef enum _queue_flags_t
 {
-        void *head;
-        void *tail;
-        void *cur_head;
-        void *cur_tail;
-        int elem_size;
-        int queue_size;
+        flag_queue_enqueue_with_data = 1 << 0,
+        flag_queue_destory_with_data = 1 << 1,
+
+}queue_flags;
+struct _queue_elem_t
+{
+        void *pdata;
+        struct _queue_t *queue_status;
+        /* extra elements add below */
+};
+struct _queue_t
+{
+        struct _queue_elem_t *head;
+        struct _queue_elem_t *tail;
+        struct _queue_elem_t *cur_head;
+        struct _queue_elem_t *cur_tail;
+        int total_slot;
         int available_slot;
-        struct _queue *free_addr; // Points to the struct itself;
-        void *free_queue;
+        struct _queue_t *free_queue;      // Points to the struct itself;
+        void *free_queue_elem;          // Points to the head queue_elem( = head)
 };
 
-int _get_queue(struct _queue *queue_name, int elem_nr, int elem_size);
-void queue_test();
-#define IS_QUEUE_EMPTY(queue_name)                                                              \
-(queue_name->available_slot == (queue_name->queue_size / queue_name->elem_size) ? TRUE : FALSE)
-#define DESTORY_QUEUE(queue_name)               \
-do                                              \
-{                                               \
-        free((void *)(queue_name->free_queue)); \
-        free((void *)(queue_name->free_addr));  \
-}while(0)
 
-#define get_queue(queue_name, elem_nr, elem_size)                       \
-struct _queue *queue_name;                                              \
-do                                                                      \
-{                                                                       \
-        MALLOC_S(struct _queue, queue_name, sizeof(struct _queue));     \
-        if(_get_queue(queue_name, elem_nr, elem_size) == 0)             \
-                printf("get queue %s succeed!\n",#queue_name);          \
-        else                                                            \
-                printf("get queue %s fail!\n",#queue_name);             \
-}while(0)
+#define queue_is_empty(queue_name)      ((queue_name->available_slot) == (queue_name->total_slot) ? TRUE : FALSE)
+#define queue_is_full(queue_name)       ((queue_name->available_slot) > 0 ? : FALSE)
 
-#define get_queue_v2(queue_name, elem_nr, elem_type)                                    \
-struct _queue *queue_name;                                                              \
-static elem_type *fetch_##queue_name;                                                   \
-do                                                                                      \
-{                                                                                       \
-        MALLOC_S(struct _queue, queue_name, sizeof(struct _queue));                     \
-        MALLOC_S(elem_type, queue_name->head, sizeof(elem_type) * elem_nr);             \
-        queue_name->cur_head = queue_name->cur_tail = queue_name->head;                 \
-        queue_name->tail = (void *)(queue_name->head + sizeof(elem_type) * elem_nr);    \
-        queue_name->free_addr = queue_name;\
-        queue_name->elem_size = sizeof(elem_type);\
-        queue_name->queue_size = sizeof(elem_type) * elem_nr;\
-        queue_name->available_slot = elem_nr;\
-}while(0)
-
-#define enqueue(queue_name, ele_addr)                                                           \
+#define queue_new(queue_name, elem_nr, data_type)                                               \
+struct _queue_t *queue_name;                                                                    \
+static data_type *data_##queue_name;                                                            \
 do                                                                                              \
 {                                                                                               \
-        if(queue_name->available_slot)                                                          \
-        {                                                                                       \
-                memmove(queue_name->cur_tail, ele_addr, queue_name->elem_size);                 \
-                queue_name->cur_tail += queue_name->elem_size;                                  \
-                if(queue_name->cur_tail == queue_name->tail)                                    \
-                        queue_name->cur_tail = queue_name->head;                                \
-                queue_name->available_slot--;                                                   \
-                if(!queue_name->available_slot)                                                 \
-                {                                                                               \
-                        printf("enqueue %s is fulled!\n",#queue_name);                          \
-                }                                                                               \
-        }                                                                                       \
-        else                                                                                    \
-                printf("enqueue %s is fulled!,CANNOT enqueue! available_slot = %d\n",           \
-                        #queue_name,queue_name->available_slot);                                \
+        MALLOC_S(struct _queue_t, queue_name, sizeof(struct _queue_t));                         \
+        MALLOC_S(struct _queue_elem_t, queue_name->head, sizeof(struct _queue_elem_t) * elem_nr);\
+        queue_name->cur_head = queue_name->cur_tail = queue_name->head;                         \
+        queue_name->tail = queue_name->head + elem_nr;                                          \
+        queue_name->free_queue_elem = queue_name;                                               \
+        queue_name->free_queue = queue_name;                                                    \
+        queue_name->total_slot = queue_name->available_slot = elem_nr;                          \
 }while(0)
 
-#define dequeue(queue_name)                                                                     \
-(queue_name->available_slot == (queue_name->queue_size / queue_name->elem_size))  ?             \
-                (printf("queue %s is empty!\n",#queue_name),NULL)               :               \
-                (queue_name->available_slot++,queue_name->cur_head += queue_name->elem_size,    \
-                 (queue_name->cur_head == queue_name->tail ?                                    \
-                (queue_name->cur_head = queue_name->head, queue_name->tail - queue_name->elem_size) :\
-                 (queue_name->cur_head - queue_name->elem_size)))
+#define queue_enqueue(queue_name, data)                                                         \
+do                                                                                              \
+{                                                                                               \
+        if(!queue_is_full(queue_name))                                                          \
+        {                                                                                       \
+                printf("Info : queue %s is full\n",#queue_name);                                \
+                break;                                                                          \
+        }                                                                                       \
+        queue_name->cur_tail =                                                                  \
+        (queue_name->cur_tail == queue_name->tail ? queue_name->head : queue_name->cur_tail + 1);\
+        (queue_name->cur_tail->pdata) = (void *)(data ? : NULL);                                 \
+        queue_name->available_slot--;                                                           \
+}while(0)
 
-#define name2str(name) #name
-#define dequeue_v2(queue_name)                                                                          \
-({                                                                                                      \
-if(queue_name->available_slot == (queue_name->queue_size / queue_name->elem_size))                      \
-        {                                                                                               \
-                printf("queue %s is empty!\n",#queue_name);                                             \
-                fetch_##queue_name = NULL;                                                              \
-        }                                                                                               \
-else                                                                                                    \
-        {                                                                                               \
-                queue_name->available_slot++;                                                           \
-                queue_name->cur_head += queue_name->elem_size;                                          \
-                if(queue_name->cur_head == queue_name->tail )                                           \
-                {                                                                                       \
-                        queue_name->cur_head = queue_name->head;                                        \
-                        fetch_##queue_name = (queue_name->tail - queue_name->elem_size);                \
-                }                                                                                       \
-                else                                                                                    \
-                        fetch_##queue_name = (queue_name->cur_head - queue_name->elem_size);            \
-        }                                                                                               \
-*fetch_##queue_name;                                                                                    \
+#define queue_dequeue(queue_name)                                                               \
+({                                                                                              \
+        data_##queue_name = NULL;                                                               \
+        if(queue_is_empty(queue_name))                                                          \
+        {                                                                                       \
+                printf("Info : queue %s is empty\n",#queue_name);                               \
+        }                                                                                       \
+        else                                                                                    \
+        {                                                                                       \
+                queue_name->available_slot++;                                                   \
+                queue_name->cur_head++;                                                         \
+                if(queue_name->cur_head > queue_name->tail)                                     \
+                        queue_name->cur_head = queue_name->head;                                \
+                data_##queue_name = (queue_name->cur_head->pdata);                              \
+        }                                                                                       \
+        data_##queue_name == NULL ? 0 : *(data_##queue_name); /*ret val*/                       \
 })
+
+
+
+#define DESTORY_QUEUE(queue_name, flag)                                                                         \
+do                                                                                                              \
+{                                                                                                               \
+        if(flag & flag_queue_destory_with_data)                                                                 \
+        {                                                                                                       \
+                for(queue_name->cur_head = queue_name->head  ; queue_name->cur_head <= queue_name->tail ; )     \
+                {                                                                                               \
+                        free(queue_name->cur_head->pdata);                                                      \
+                        queue_name->cur_head++;                                                                 \
+                }                                                                                               \
+        }                                                                                                       \
+        free(queue_name->free_queue_elem);                                                                      \
+        free(queue_name->free_queue);                                                                           \
+}while(0)

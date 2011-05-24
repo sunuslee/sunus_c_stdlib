@@ -4,6 +4,6 @@
 #include "link/link.h"
 int main()
 {
-        link_test();
+        queue_test_v2();
         return 0;
 }

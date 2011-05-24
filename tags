@@ -23,7 +23,7 @@ DEBUG	test/debug.c	4;"	d	file:
 DEBUG_ARGS	common/common.h	81;"	d
 DEBUG_ARGS	test/debug.c	16;"	d	file:
 DELETE_NODE	rbtree/rbtree.h	113;"	d
-DESTORY_QUEUE	queue/queue.h	19;"	d
+DESTORY_QUEUE	queue/queue.h	77;"	d
 FALSE	common/common.h	24;"	d
 FALSE	include/MyAlgo.h	22;"	d
 FALSE	test/prre.c	4;"	d	file:
@@ -37,7 +37,6 @@ IS_NODE_LEFT	rbtree/rbtree.h	48;"	d
 IS_NODE_LEFT	test/prre.c	60;"	d	file:
 IS_PARENT_LEFT	rbtree/rbtree.h	47;"	d
 IS_PARENT_LEFT	test/prre.c	59;"	d	file:
-IS_QUEUE_EMPTY	queue/queue.h	17;"	d
 IS_UNCLE_LEFT	rbtree/rbtree.h	46;"	d
 IS_UNCLE_LEFT	test/prre.c	58;"	d	file:
 LEFT	heap/heap.c	3;"	d	file:
@@ -484,7 +483,7 @@ _flags	link/pl.c	/^  int _flags;$/;"	m	struct:_IO_FILE	file:
 _flags	stack/pre.c	/^  int _flags;$/;"	m	struct:_IO_FILE	file:
 _flags2	link/pl.c	/^  int _flags2;$/;"	m	struct:_IO_FILE	file:
 _flags2	stack/pre.c	/^  int _flags2;$/;"	m	struct:_IO_FILE	file:
-_get_queue	queue/queue.c	/^int _get_queue(struct _queue *queue_name, int elem_nr, int elem_size)$/;"	f
+_flags_t	test/enum.c	/^typedef enum _flags_t$/;"	g	file:
 _get_stack	stack/pre.c	/^int _get_stack(struct _stack *stack_name, int elem_nr, size_t elem_size)$/;"	f
 _get_stack	stack/stack.c	/^int _get_stack(struct _stack *stack_name, int elem_nr, size_t elem_size)$/;"	f
 _link_flags_t	link/link.h	/^typedef enum _link_flags_t$/;"	g
@@ -502,7 +501,9 @@ _old_offset	link/pl.c	/^  __off_t _old_offset;$/;"	m	struct:_IO_FILE	file:
 _old_offset	stack/pre.c	/^  __off_t _old_offset;$/;"	m	struct:_IO_FILE	file:
 _pos	link/pl.c	/^  int _pos;$/;"	m	struct:_IO_marker	file:
 _pos	stack/pre.c	/^  int _pos;$/;"	m	struct:_IO_marker	file:
-_queue	queue/queue.h	/^struct _queue$/;"	s
+_queue_elem_t	queue/queue.h	/^struct _queue_elem_t$/;"	s
+_queue_flags_t	queue/queue.h	/^typedef enum _queue_flags_t$/;"	g
+_queue_t	queue/queue.h	/^struct _queue_t$/;"	s
 _rbtree	rbtree/rbtree.h	/^struct _rbtree$/;"	s
 _rbtree	test/prre.c	/^struct _rbtree$/;"	s	file:
 _rbtree	test/test.c	/^struct _rbtree$/;"	s	file:
@@ -521,7 +522,7 @@ _vtable_offset	stack/pre.c	/^  signed char _vtable_offset;$/;"	m	struct:_IO_FILE
 attr	rbtree/rbtree.h	/^        struct _attr attr;$/;"	m	struct:_rbtree	typeref:struct:_rbtree::_attr
 attr	test/prre.c	/^        struct _attr attr;$/;"	m	struct:_rbtree	typeref:struct:_rbtree::_attr	file:
 attr	test/test.c	/^        struct _attr attr;$/;"	m	struct:_rbtree	typeref:struct:_rbtree::_attr	file:
-available_slot	queue/queue.h	/^        int available_slot;$/;"	m	struct:_queue
+available_slot	queue/queue.h	/^        int available_slot;$/;"	m	struct:_queue_t
 blkcnt_t	link/pl.c	/^typedef __blkcnt_t blkcnt_t;$/;"	t	file:
 blkcnt_t	stack/pre.c	/^typedef __blkcnt_t blkcnt_t;$/;"	t	file:
 blksize_t	link/pl.c	/^typedef __blksize_t blksize_t;$/;"	t	file:
@@ -546,26 +547,22 @@ color	test/test.c	/^        color_t color;$/;"	m	struct:_attr	file:
 color_t	rbtree/rbtree.h	/^typedef char color_t;$/;"	t
 color_t	test/prre.c	/^typedef char color_t;$/;"	t	file:
 color_t	test/test.c	/^typedef char color_t;$/;"	t	file:
-cur_head	queue/queue.h	/^        void *cur_head;$/;"	m	struct:_queue
-cur_tail	queue/queue.h	/^        void *cur_tail;$/;"	m	struct:_queue
+cur_head	queue/queue.h	/^        struct _queue_elem_t *cur_head;$/;"	m	struct:_queue_t	typeref:struct:_queue_t::_queue_elem_t
+cur_tail	queue/queue.h	/^        struct _queue_elem_t *cur_tail;$/;"	m	struct:_queue_t	typeref:struct:_queue_t::_queue_elem_t
 d_val	rbtree/rbtree.h	/^        double d_val;$/;"	m	union:_val
 d_val	test/prre.c	/^        double d_val;$/;"	m	union:_val	file:
 daddr_t	link/pl.c	/^typedef __daddr_t daddr_t;$/;"	t	file:
 daddr_t	stack/pre.c	/^typedef __daddr_t daddr_t;$/;"	t	file:
-dequeue	queue/queue.h	72;"	d
-dequeue_v2	queue/queue.h	81;"	d
 dev_t	link/pl.c	/^typedef __dev_t dev_t;$/;"	t	file:
 dev_t	stack/pre.c	/^typedef __dev_t dev_t;$/;"	t	file:
 div_t	link/pl.c	/^  } div_t;$/;"	t	typeref:struct:__anon34	file:
 div_t	stack/pre.c	/^  } div_t;$/;"	t	typeref:struct:__anon9	file:
 drand48_data	link/pl.c	/^struct drand48_data$/;"	s	file:
 drand48_data	stack/pre.c	/^struct drand48_data$/;"	s	file:
-elem_size	queue/queue.h	/^        int elem_size;$/;"	m	struct:_queue
 elem_size	stack/pre.c	/^        int elem_size;$/;"	m	struct:_stack	file:
 elem_size	stack/stack.h	/^        int elem_size;$/;"	m	struct:_stack
 end_ptr	link/pl.c	/^    int32_t *end_ptr;$/;"	m	struct:random_data	file:
 end_ptr	stack/pre.c	/^    int32_t *end_ptr;$/;"	m	struct:random_data	file:
-enqueue	queue/queue.h	52;"	d
 enum	test/prre.asm	/^enum __codecvt_result$/;"	l
 extern	test/prre.asm	/^extern FILE *fdopen (int __fd, __const char *__modes) __attribute__ ((__nothrow__)) ;$/;"	l
 extern	test/prre.asm	/^extern FILE *fmemopen (void *__s, size_t __len, __const char *__modes)$/;"	l
@@ -686,8 +683,16 @@ fd_mask	link/pl.c	/^typedef __fd_mask fd_mask;$/;"	t	file:
 fd_mask	stack/pre.c	/^typedef __fd_mask fd_mask;$/;"	t	file:
 fd_set	link/pl.c	/^  } fd_set;$/;"	t	typeref:struct:__anon38	file:
 fd_set	stack/pre.c	/^  } fd_set;$/;"	t	typeref:struct:__anon13	file:
+flag	test/enum.c	/^}flag;$/;"	t	typeref:enum:_flags_t	file:
+flag_a	test/enum.c	/^        flag_a = 1 << 0,$/;"	e	enum:_flags_t	file:
+flag_b	test/enum.c	/^        flag_b = 1 << 1,$/;"	e	enum:_flags_t	file:
+flag_c	test/enum.c	/^        flag_c = 1 << 2,$/;"	e	enum:_flags_t	file:
+flag_d	test/enum.c	/^        flag_d = 1 << 3,$/;"	e	enum:_flags_t	file:
+flag_e	test/enum.c	/^        flag_e = 1 << 4,$/;"	e	enum:_flags_t	file:
 flag_link_delete_with_data	link/link.h	/^        flag_link_delete_with_data = 1 << 1,$/;"	e	enum:_link_flags_t
 flag_link_new_with_data	link/link.h	/^        flag_link_new_with_data =    1 << 0,$/;"	e	enum:_link_flags_t
+flag_queue_destory_with_data	queue/queue.h	/^        flag_queue_destory_with_data = 1 << 1,$/;"	e	enum:_queue_flags_t
+flag_queue_enqueue_with_data	queue/queue.h	/^        flag_queue_enqueue_with_data = 1 << 0,$/;"	e	enum:_queue_flags_t
 flag_t	common/common.h	/^typedef uint32_t flag_t; $/;"	t
 fpos_t	link/pl.c	/^typedef _G_fpos_t fpos_t;$/;"	t	file:
 fpos_t	stack/pre.c	/^typedef _G_fpos_t fpos_t;$/;"	t	file:
@@ -695,27 +700,25 @@ fptr	link/pl.c	/^    int32_t *fptr;$/;"	m	struct:random_data	file:
 fptr	stack/pre.c	/^    int32_t *fptr;$/;"	m	struct:random_data	file:
 free_addr	link/link.h	/^        struct link_list *free_addr;$/;"	m	struct:link	typeref:struct:link::link_list
 free_addr	link/pl.c	/^        struct link_list *free_addr;$/;"	m	struct:link	typeref:struct:link::link_list	file:
-free_addr	queue/queue.h	/^        struct _queue *free_addr; \/\/ Points to the struct itself;$/;"	m	struct:_queue	typeref:struct:_queue::_queue
 free_addr	rbtree/rbtree.h	/^        void *free_addr;$/;"	m	struct:_attr
 free_addr	stack/pre.c	/^        struct _stack *free_addr;$/;"	m	struct:_stack	typeref:struct:_stack::_stack	file:
 free_addr	stack/stack.h	/^        struct _stack *free_addr;$/;"	m	struct:_stack	typeref:struct:_stack::_stack
 free_addr	test/prre.c	/^        void *free_addr;$/;"	m	struct:_attr	file:
-free_queue	queue/queue.h	/^        void *free_queue;$/;"	m	struct:_queue
+free_queue	queue/queue.h	/^        struct _queue *free_queue;      \/\/ Points to the struct itself;$/;"	m	struct:_queue_t	typeref:struct:_queue_t::_queue
+free_queue_elem	queue/queue.h	/^        void *free_queue_elem;          \/\/ Points to the head queue_elem( = head)$/;"	m	struct:_queue_t
 fsblkcnt_t	link/pl.c	/^typedef __fsblkcnt_t fsblkcnt_t;$/;"	t	file:
 fsblkcnt_t	stack/pre.c	/^typedef __fsblkcnt_t fsblkcnt_t;$/;"	t	file:
 fsfilcnt_t	link/pl.c	/^typedef __fsfilcnt_t fsfilcnt_t;$/;"	t	file:
 fsfilcnt_t	stack/pre.c	/^typedef __fsfilcnt_t fsfilcnt_t;$/;"	t	file:
 fsid_t	link/pl.c	/^typedef __fsid_t fsid_t;$/;"	t	file:
 fsid_t	stack/pre.c	/^typedef __fsid_t fsid_t;$/;"	t	file:
-get_queue	queue/queue.h	26;"	d
-get_queue_v2	queue/queue.h	37;"	d
 get_rbtree_node	rbtree/rbtree.h	73;"	d
 get_rbtree_node	test/prre.c	86;"	d	file:
 get_rbtree_node_with_name	rbtree/rbtree.h	93;"	d
 get_stack	stack/stack.h	30;"	d
 gid_t	link/pl.c	/^typedef __gid_t gid_t;$/;"	t	file:
 gid_t	stack/pre.c	/^typedef __gid_t gid_t;$/;"	t	file:
-head	queue/queue.h	/^        void *head;$/;"	m	struct:_queue
+head	queue/queue.h	/^        struct _queue_elem_t *head;$/;"	m	struct:_queue_t	typeref:struct:_queue_t::_queue_elem_t
 heap_sort	heap/heap.c	/^int heap_sort(void *array, int32_t nelem, size_t elem_size, int32_t offset, const char *ele_type, bool build)$/;"	f
 i_val	rbtree/rbtree.h	/^        int i_val;$/;"	m	union:_val
 i_val	test/prre.c	/^        int i_val;$/;"	m	union:_val	file:
@@ -758,16 +761,16 @@ link_flag	link/link.h	/^}link_flag;$/;"	t	typeref:enum:_link_flags_t
 link_list	link/link.h	/^struct link_list$/;"	s
 link_list	link/pl.c	/^struct link_list$/;"	s	file:
 link_list	test/tl.c	/^struct link_list$/;"	s	file:
-link_list_delet_node	link/link.h	21;"	d
-link_list_delete_data	link/link.h	22;"	d
-link_list_delete_head	link/link.h	49;"	d
-link_list_delete_tail	link/link.h	59;"	d
-link_list_get_data	link/link.h	20;"	d
-link_list_get_next	link/link.h	19;"	d
-link_list_get_prev	link/link.h	18;"	d
-link_list_insert_head	link/link.h	24;"	d
-link_list_insert_tail	link/link.h	34;"	d
-link_list_new_node	link/link.h	7;"	d
+link_list_delet_node	link/link.h	22;"	d
+link_list_delete_data	link/link.h	23;"	d
+link_list_delete_head	link/link.h	50;"	d
+link_list_delete_tail	link/link.h	60;"	d
+link_list_get_data	link/link.h	21;"	d
+link_list_get_next	link/link.h	20;"	d
+link_list_get_prev	link/link.h	19;"	d
+link_list_insert_head	link/link.h	25;"	d
+link_list_insert_tail	link/link.h	35;"	d
+link_list_new_node	link/link.h	8;"	d
 link_test	link/link.c	/^void link_test()$/;"	f
 lldiv_t	link/pl.c	/^  } lldiv_t;$/;"	t	typeref:struct:__anon36	file:
 lldiv_t	stack/pre.c	/^  } lldiv_t;$/;"	t	typeref:struct:__anon11	file:
@@ -778,6 +781,7 @@ main	link/pl.c	/^int main()$/;"	f
 main	main.c	/^int main()$/;"	f
 main	stack/pre.c	/^int main()$/;"	f
 main	test/debug.c	/^int main()$/;"	f
+main	test/enum.c	/^int main()$/;"	f
 main	test/mt.c	/^int main()$/;"	f
 main	test/p.c	/^int main()$/;"	f
 main	test/prop.c	/^int main()$/;"	f
@@ -790,7 +794,6 @@ max_heapify	heap/heap.c	/^void max_heapify(void *array, int i, int32_t nelem, si
 mode_t	link/pl.c	/^typedef __mode_t mode_t;$/;"	t	file:
 mode_t	stack/pre.c	/^typedef __mode_t mode_t;$/;"	t	file:
 n	test/tl.c	/^        struct link_list *n;$/;"	m	struct:plink	typeref:struct:plink::link_list	file:
-name2str	queue/queue.h	80;"	d
 name2str	test/tt.c	2;"	d	file:
 next	link/link.h	/^        struct link_list *next;$/;"	m	struct:link	typeref:struct:link::link_list
 next	link/pl.c	/^        struct link_list *next;$/;"	m	struct:link	typeref:struct:link::link_list	file:
@@ -805,6 +808,7 @@ parent	test/prre.c	/^        struct _rbtree *parent;$/;"	m	struct:_attr	typeref:
 parent	test/test.c	/^        struct _rbtree *parent;$/;"	m	struct:_attr	typeref:struct:_attr::_rbtree	file:
 pdata	link/link.h	/^        void *pdata;$/;"	m	struct:link_list
 pdata	link/pl.c	/^        void *pdata;$/;"	m	struct:link_list	file:
+pdata	queue/queue.h	/^        void *pdata;$/;"	m	struct:_queue_elem_t
 pdata	rbtree/rbtree.h	/^        void *pdata;$/;"	m	struct:_rbtree
 pdata	test/prre.c	/^        void *pdata;$/;"	m	struct:_rbtree	file:
 pdata	test/test.c	/^        void *pdata;$/;"	m	struct:_rbtree	file:
@@ -846,8 +850,13 @@ pthread_t	stack/pre.c	/^typedef unsigned long int pthread_t;$/;"	t	file:
 push	stack/stack.h	2;"	d
 quad_t	link/pl.c	/^typedef __quad_t quad_t;$/;"	t	file:
 quad_t	stack/pre.c	/^typedef __quad_t quad_t;$/;"	t	file:
-queue_size	queue/queue.h	/^        int queue_size;$/;"	m	struct:_queue
-queue_test	queue/queue.c	/^void queue_test()$/;"	f
+queue_dequeue	queue/queue.h	57;"	d
+queue_enqueue	queue/queue.h	44;"	d
+queue_flags	queue/queue.h	/^}queue_flags;$/;"	t	typeref:enum:_queue_flags_t
+queue_is_empty	queue/queue.h	27;"	d
+queue_is_full	queue/queue.h	28;"	d
+queue_new	queue/queue.h	30;"	d
+queue_status	queue/queue.h	/^        struct _queue_t *queue_status;$/;"	m	struct:_queue_elem_t	typeref:struct:_queue_elem_t::_queue_t
 queue_test_v2	queue/queue.c	/^void queue_test_v2()$/;"	f
 quot	link/pl.c	/^    int quot;$/;"	m	struct:__anon34	file:
 quot	link/pl.c	/^    long int quot;$/;"	m	struct:__anon35	file:
@@ -902,7 +911,8 @@ state	link/pl.c	/^    int32_t *state;$/;"	m	struct:random_data	file:
 state	stack/pre.c	/^    int32_t *state;$/;"	m	struct:random_data	file:
 suseconds_t	link/pl.c	/^typedef __suseconds_t suseconds_t;$/;"	t	file:
 suseconds_t	stack/pre.c	/^typedef __suseconds_t suseconds_t;$/;"	t	file:
-tail	queue/queue.h	/^        void *tail;$/;"	m	struct:_queue
+tail	queue/queue.h	/^        struct _queue_elem_t *tail;$/;"	m	struct:_queue_t	typeref:struct:_queue_t::_queue_elem_t
+test	test/enum.c	/^void test(unsigned int flags)$/;"	f
 test_main	heap/heap.c	/^void test_main()$/;"	f
 time_t	link/pl.c	/^typedef __time_t time_t;$/;"	t	file:
 time_t	stack/pre.c	/^typedef __time_t time_t;$/;"	t	file:
@@ -914,6 +924,7 @@ timeval	link/pl.c	/^struct timeval$/;"	s	file:
 timeval	stack/pre.c	/^struct timeval$/;"	s	file:
 top	stack/pre.c	/^        void *top;$/;"	m	struct:_stack	file:
 top	stack/stack.h	/^        void *top;$/;"	m	struct:_stack
+total_slot	queue/queue.h	/^        int total_slot;$/;"	m	struct:_queue_t
 tree_successor	rbtree/rbtree.c	/^struct _rbtree *tree_successor(struct _rbtree *node)$/;"	f
 tv_nsec	link/pl.c	/^    long int tv_nsec;$/;"	m	struct:timespec	file:
 tv_nsec	stack/pre.c	/^    long int tv_nsec;$/;"	m	struct:timespec	file:
