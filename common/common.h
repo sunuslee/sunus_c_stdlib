@@ -66,8 +66,8 @@ do                                                                      \
 {                                                                       \
         if(on)                                                          \
                 {                                                       \
-                printf("Debug Info :%s , %s , %d , val = %08x\n",       \
-                        __FILE__,__func__,__LINE__,(uint32_t)(val));    \
+                printf("Debug Info :%s , %s , %d , %s = %08x\n",        \
+                        __FILE__,__func__,__LINE__,#val,(uint32_t)(val));\
                 while(getchar() != 'c')                                 \
                        /* Press 'C' to continue */        ;             \
                 }                                                       \

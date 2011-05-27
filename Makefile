@@ -6,6 +6,8 @@ link_test: main.o link.o queue.o common.o
 	gcc -o link_test main.o link.o queue.o common.o
 queue_test: main.o queue.o common.o
 	gcc -o queue_test main.o queue.o common.o
+stack_test: main.o stack.o common.o
+	gcc -o stack_test main.o stack.o common.o
 rbtree.o : ./rbtree/rbtree.c ./rbtree/rbtree.h ./common/common.h
 	gcc -c $(CFLAGS) ./rbtree/rbtree.c ./rbtree/rbtree.h ./common/common.h
 queue.o : ./queue/queue.c ./queue/queue.h ./common/common.h

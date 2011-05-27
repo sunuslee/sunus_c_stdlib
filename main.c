@@ -2,8 +2,9 @@
 #include "queue/queue.h"
 #include "rbtree/rbtree.h"
 #include "link/link.h"
+#include "stack/stack.h"
 int main()
 {
-        queue_test_v2();
+        stack_test();
         return 0;
 }

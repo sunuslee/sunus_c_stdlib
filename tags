@@ -23,7 +23,7 @@ DEBUG	test/debug.c	4;"	d	file:
 DEBUG_ARGS	common/common.h	81;"	d
 DEBUG_ARGS	test/debug.c	16;"	d	file:
 DELETE_NODE	rbtree/rbtree.h	113;"	d
-DESTORY_QUEUE	queue/queue.h	77;"	d
+DESTORY_QUEUE	queue/queue.h	78;"	d
 FALSE	common/common.h	24;"	d
 FALSE	include/MyAlgo.h	22;"	d
 FALSE	test/prre.c	4;"	d	file:
@@ -485,7 +485,6 @@ _flags2	link/pl.c	/^  int _flags2;$/;"	m	struct:_IO_FILE	file:
 _flags2	stack/pre.c	/^  int _flags2;$/;"	m	struct:_IO_FILE	file:
 _flags_t	test/enum.c	/^typedef enum _flags_t$/;"	g	file:
 _get_stack	stack/pre.c	/^int _get_stack(struct _stack *stack_name, int elem_nr, size_t elem_size)$/;"	f
-_get_stack	stack/stack.c	/^int _get_stack(struct _stack *stack_name, int elem_nr, size_t elem_size)$/;"	f
 _link_flags_t	link/link.h	/^typedef enum _link_flags_t$/;"	g
 _lock	link/pl.c	/^  _IO_lock_t *_lock;$/;"	m	struct:_IO_FILE	file:
 _lock	stack/pre.c	/^  _IO_lock_t *_lock;$/;"	m	struct:_IO_FILE	file:
@@ -704,7 +703,7 @@ free_addr	rbtree/rbtree.h	/^        void *free_addr;$/;"	m	struct:_attr
 free_addr	stack/pre.c	/^        struct _stack *free_addr;$/;"	m	struct:_stack	typeref:struct:_stack::_stack	file:
 free_addr	stack/stack.h	/^        struct _stack *free_addr;$/;"	m	struct:_stack	typeref:struct:_stack::_stack
 free_addr	test/prre.c	/^        void *free_addr;$/;"	m	struct:_attr	file:
-free_queue	queue/queue.h	/^        struct _queue *free_queue;      \/\/ Points to the struct itself;$/;"	m	struct:_queue_t	typeref:struct:_queue_t::_queue
+free_queue	queue/queue.h	/^        struct _queue_t *free_queue;      \/\/ Points to the struct itself;$/;"	m	struct:_queue_t	typeref:struct:_queue_t::_queue_t
 free_queue_elem	queue/queue.h	/^        void *free_queue_elem;          \/\/ Points to the head queue_elem( = head)$/;"	m	struct:_queue_t
 fsblkcnt_t	link/pl.c	/^typedef __fsblkcnt_t fsblkcnt_t;$/;"	t	file:
 fsblkcnt_t	stack/pre.c	/^typedef __fsblkcnt_t fsblkcnt_t;$/;"	t	file:
@@ -715,7 +714,6 @@ fsid_t	stack/pre.c	/^typedef __fsid_t fsid_t;$/;"	t	file:
 get_rbtree_node	rbtree/rbtree.h	73;"	d
 get_rbtree_node	test/prre.c	86;"	d	file:
 get_rbtree_node_with_name	rbtree/rbtree.h	93;"	d
-get_stack	stack/stack.h	30;"	d
 gid_t	link/pl.c	/^typedef __gid_t gid_t;$/;"	t	file:
 gid_t	stack/pre.c	/^typedef __gid_t gid_t;$/;"	t	file:
 head	queue/queue.h	/^        struct _queue_elem_t *head;$/;"	m	struct:_queue_t	typeref:struct:_queue_t::_queue_elem_t
@@ -818,7 +816,6 @@ pid_t	stack/pre.c	/^typedef __pid_t pid_t;$/;"	t	file:
 plink	link/link.h	/^        struct link plink;$/;"	m	struct:link_list	typeref:struct:link_list::link
 plink	link/pl.c	/^        struct link plink;$/;"	m	struct:link_list	typeref:struct:link_list::link	file:
 plink	test/tl.c	/^struct plink$/;"	s	file:
-pop	stack/stack.h	13;"	d
 prev	link/link.h	/^        struct link_list *prev;$/;"	m	struct:link	typeref:struct:link::link_list
 prev	link/pl.c	/^        struct link_list *prev;$/;"	m	struct:link	typeref:struct:link::link_list	file:
 pthread_attr_t	link/pl.c	/^} pthread_attr_t;$/;"	t	typeref:union:__anon39	file:
@@ -847,10 +844,9 @@ pthread_spinlock_t	link/pl.c	/^typedef volatile int pthread_spinlock_t;$/;"	t	fi
 pthread_spinlock_t	stack/pre.c	/^typedef volatile int pthread_spinlock_t;$/;"	t	file:
 pthread_t	link/pl.c	/^typedef unsigned long int pthread_t;$/;"	t	file:
 pthread_t	stack/pre.c	/^typedef unsigned long int pthread_t;$/;"	t	file:
-push	stack/stack.h	2;"	d
 quad_t	link/pl.c	/^typedef __quad_t quad_t;$/;"	t	file:
 quad_t	stack/pre.c	/^typedef __quad_t quad_t;$/;"	t	file:
-queue_dequeue	queue/queue.h	57;"	d
+queue_dequeue	queue/queue.h	58;"	d
 queue_enqueue	queue/queue.h	44;"	d
 queue_flags	queue/queue.h	/^}queue_flags;$/;"	t	typeref:enum:_queue_flags_t
 queue_is_empty	queue/queue.h	27;"	d
@@ -902,7 +898,10 @@ sp	stack/pre.c	/^        void *sp;$/;"	m	struct:_stack	file:
 sp	stack/stack.h	/^        void *sp;$/;"	m	struct:_stack
 ssize_t	link/pl.c	/^typedef __ssize_t ssize_t;$/;"	t	file:
 ssize_t	stack/pre.c	/^typedef __ssize_t ssize_t;$/;"	t	file:
-stack_destory	stack/stack.h	19;"	d
+stack_destory	stack/stack.h	28;"	d
+stack_new	stack/stack.h	38;"	d
+stack_pop	stack/stack.h	24;"	d
+stack_push	stack/stack.h	12;"	d
 stack_size	stack/pre.c	/^        int stack_size;$/;"	m	struct:_stack	file:
 stack_size	stack/stack.h	/^        int stack_size;$/;"	m	struct:_stack
 stack_t	include/MyAlgo.h	/^typedef int stack_t;$/;"	t

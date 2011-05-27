@@ -1,0 +1,11 @@
+# 1 "stack.c"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "stack.c"
+# 16 "stack.c"
+void stack_test()
+{
+
+        struct _stack *intstack; do { MALLOC_S(struct _stack, intstack, sizeof(struct _stack)); intstack->stack_size = 5 * sizeof(int); MALLOC_S(char, intstack->button, intstack->stack_size); intstack->top = intstack->button + 5 * sizeof(int); intstack->sp = intstack->button - sizeof(int); intstack->sizeof(int) = sizeof(int); }while(0);
+# 38 "stack.c"
+}
