@@ -23,5 +23,5 @@ link.o : ./link/link.c ./link/link.h ./common/common.h
 main.o : ./main.c ./link/link.h ./queue/queue.h
 	gcc -c $(CFLAGS) ./main.c ./link/link.h ./queue/queue.h
 clean :
-	rm -rf rbtree_test heap_test stack_test *.o
+	rm -rf rbtree_test heap_test stack_test *.o cscope* `find . -name *.gch`
 
